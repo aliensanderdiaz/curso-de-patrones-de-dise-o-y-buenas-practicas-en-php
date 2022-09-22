@@ -1,0 +1,2035 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <title>Curso de Patrones de Diseño y Buenas Prácticas en PHP</title>
+    <style>
+        img {
+            max-width: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="text-center">
+        <h1>Curso de Patrones de Diseño y Buenas Prácticas en PHP</h1>
+    </header>
+    <main class="container">
+        <hr>
+
+        <section class="row">
+            <article class="col">
+                <h2>Sección 1 de 26 - Todo lo que aprenderas sobre buenas practicas para escribir codigo</h2>
+                <div class="Resources-description">
+                    <p>¡Bienvenido al Curso de Buenas Prácticas para Escritura de Código!</p>
+                    <p>En este curso nuestro profesor Mauro Chojrin nos enseñará una serie de técnicas que nos ayudarán
+                        a realizar aplicaciones más robustas, escalables y mantenibles en el tiempo.</p>
+                    <p>Nuestro profesor Mauro Chojrin es docente y consultor con PHP, trabaja en la industria IT desde
+                        1997 desarrollando y liderando equipos.</p>
+                </div>
+                <h2>TRANSCRIPCION</h2>
+                <div class="Transcript-text">
+                    <p>Hola, tengo la bienvenida a este curso de buenas prácticas para la escritura del código Donde</p>
+                    <p>Aprenderas una serie de técnicas que te permitirán generar aplicaciones más robustas, más
+                        escalables </p>
+                    <p>y, sobre todo, mas mantenible s en el tiempo. De lo que vamos a estar hablando es </p>
+                    <p>sobre primero cómo identificar los problemas más comunes que sean en el código y </p>
+                    <p>cómo evitarlos o prevenir los. Luego hablaremos sobre los principios sólidos, que son una serie
+                        de </p>
+                    <p>lineamientos que te permitirán generar aplicaciones más robustas y más escalables desde </p>
+                    <p>el comienzo. Y por último, veremos una técnica de programación conocida como TI by the </p>
+                    <p>de Destruyen Development, que te permitirá elevar sustancialmente la calidad de tu código desde
+                    </p>
+                    <p>el comienzo todo lo largo del curso. Estaré mostrándote ejemplos de código para que puedas
+                        vivenciar </p>
+                    <p>por ti mismo los problemas que te estoy comentando. </p>
+                    <p>Sudo utilizar el lenguaje PHP, pero no es imprescindible que lo dominas por completo, ya que las
+                        técnicas </p>
+                    <p>son perfectamente aplicables en cualquier otro lenguaje. </p>
+                    <p>Y por último, te aclaro que este curso está diseñado para estudiantes o profesionales que sea.
+                    </p>
+                    <p>Tienen algo de experiencia en programación orientada a objetos. </p>
+                    <p>Mi nombre es Mauro Chojin Soy, docente coche y consultor PHP trabajó en la industria Haití desde
+                        el </p>
+                    <p>año mil novecientos noventa y siete. He tenido diferentes roles en diferentes organizaciones.
+                    </p>
+                    <p>He sido desarrollador, Días de equipos, arquitecto, etcétera. </p>
+                    <p>Y aquí está mi Twitter arroba y mucho kreen. Asi que cuarenta conmigo, sigamos la discusión por
+                        así </p>
+                    <p>Y nos vemos en la proxima clase para comenzar el curso. </p>
+                </div>
+            </article>
+        </section>
+
+        <hr>
+
+        <section class="row">
+            <article class="col">
+                <h2>Sección 2 de 26 - A quien beneficia contar con codigo bien escrito</h2>
+                <div class="Resources-description">
+                    <p><strong><em>El código bien escrito beneficia a todos los involucrados en el
+                                proyecto.</em></strong></p>
+                    <ul>
+                        <li><strong>A tí:</strong> Cuando retomemos un proyecto después de un largo tiempo nos
+                            beneficiará ya que sabremos cómo está ordenado y cómo está escrito todo.</li>
+                        <li><strong>A cualquiera:</strong> Cualquier persona que deba <em>modificar</em> el código
+                            después de tí.</li>
+                        <li><strong>A tu cliente:</strong> Aunque nunca lo sabrá, su negocio estará mejor atendido.</li>
+                    </ul>
+                </div>
+
+                <h2>TRANSCRIPCION</h2>
+                <div class="Transcript-text">
+                    <p>a quien beneficia realmente tener un código bien escrito.</p>
+                    <p>Te podrás estar en preguntando La primera persona que se va a beneficiar de tener el código bien
+                        escrito </p>
+                    <p>eres tú. Así que sea solo por eso vale la pena prestarle atención, Porque. </p>
+                    <p>De veras? Beneficiado? Bueno, básicamente, el problema con el que te vas a encontrar es </p>
+                    <p>que cuando retome es un proyecto que dejaste de lado hace unos seis meses. </p>
+                    <p>Si el código no está correctamente escrito, tercera, muy, muy difícil volver </p>
+                    <p>a entender dónde está cada cosa, porque está el código estructurado de una determinada manera y
+                    </p>
+                    <p>en definitiva, te tomaran muchísimo más tiempo del necesario el poder continuar </p>
+                    <p>este desarrollo. Luego está el beneficio que aportaras a tu equipo de trabajo. </p>
+                    <p>Siempre que trabajasen en conjunto con otra gente. </p>
+                    <p>Tiene el código bien escrito a suda mucho a la persona que viene detrás de ti. </p>
+                    <p>Lo último que queremos que suceda es algo como esto, es decir, listo. </p>
+                    <p>Ya, ya casi termino. Ya ella me voy. Ha Push, Fors bebeis. </p>
+                    <p>Muy bien, Listo. Ya se manda producción. Entonces pues vámonos. </p>
+                    <p>Bueno, estos de vacaciones. Chau todos los quiero mucho. </p>
+                    <p>Nos vemos en un mes. Suerte. Sí, Por último, tu cliente también se verá beneficiado por el código
+                    </p>
+                    <p>bien escrito, porque primero, porque alteran el código bien escrito, será mucho más fácil y </p>
+                    <p>por lo tanto más económico, hacer el mantenimiento evolutivo de la aplicación. </p>
+                    <p>Y a la vez habrá menos interrupciones en las tareas cotidianas en la implementación de este de
+                    </p>
+                    <p>este Software y en su desarrollo. También En conclusión todos los involucrados en </p>
+                    <p>desarrollo de un sofá del se verán beneficiados por el Código limpio primero que nada, tus o del
+                        futuro </p>
+                    <p>Segundo, tu equipo de trabajo y tercero, tu cliente Así que interesa ahora te esté preguntando de
+                    </p>
+                    <p>qué se trata el Código limpio bien escrito. Bueno, pues dejan dos comentarios de la clase Lo que
+                        tú </p>
+                    <p>consideras que es el código bien escrito y a lo largo de las próximas clases de esta demostrando
+                        las </p>
+                    <p>técnicas que te ayudarán a lograrlo. </p>
+                </div>
+            </article>
+        </section>
+
+        <hr>
+
+        <section class="row">
+            <article class="col">
+                <h2>Sección 3 de 26 - Ejes que hacen a la calidad del código</h2>
+                <div class="Resources-description">
+                    <h3>Los siguientes elementos dotan de calidad al código:</h3>
+                    <p><strong>Legibilidad:</strong> qué tan fácil es interpretar lo que el código dice.<br>
+                        <strong>Mantenibilidad:</strong> cuánto esfuerzo supondrá adaptar el código a nuevos
+                        requerimientos.<br>
+                        <strong>Testeabilidad:</strong> cuánto esfuerzo supondrá <em>realizar pruebas sobre este
+                            código</em>.
+                    </p>
+                </div>
+
+                <h2>TRANSCRIPCION</h2>
+                <div class="Transcript-text">
+                    <p>Ahora que estamos de acuerdo en los beneficios que aporta el tener un código bien escrito.</p>
+                    <p>Tenemos que empezar a definir qué entendemos por código bien escrito y cómo identificar cuando el
+                        código </p>
+                    <p>no está bien escrito. Para eso vamos a empezar a pensar en diferentes ejes que hacen a la calidad
+                        del </p>
+                    <p>Código Lo. Primero es entender que hay muchas formas diferentes de medir la calidad de un código.
+                    </p>
+                    <p>Algunas de esas son características externas, o sea, cosas que observan los usuarios al </p>
+                    <p>interactuar con el sofá, que eso es bueno, obviamente muy importante. </p>
+                    <p>Y por el otro lado tenemos características internas, que son aquellas características que sólo
+                    </p>
+                    <p>estarán visibles cuando analicemos el código Independientemente del Software que se ha producido
+                        con </p>
+                    <p>este corrió, conocía. Si bien la caricias externas son sumamente importantes a la hora de
+                        establecer </p>
+                    <p>la calidad del sofá, nosotros en este curso nos vamos a concentrar en las características
+                        internas </p>
+                    <p>Dentro de esas características. Vamos a hablar de tres ejes que se componen para </p>
+                    <p>dar la calidad del Código El. Primero de esos es la legibilidad. </p>
+                    <p>El segundo la mantenim Ilit Add y el tercero, la de estabilidad Cuando los elegibilidad de </p>
+                    <p>lo que estamos hablando desde cuánto esfuerzo implica entender lo que el código dice sin </p>
+                    <p>ejecutar? Los financió nada, simplemente leerlo y poder interpretar lo que dice. </p>
+                    <p>Por ejemplo, cosas que afectan a la legibilidad son la falta. </p>
+                    <p>Intenta Zion Podemos el código desprolijo Lo Hablaremos de la mantenida Ilit Add. </p>
+                    <p>Esto tiene que ver con que el software que escribimos hoy no va a ser lo mismo para toda la vida.
+                    </p>
+                    <p>Sabemos todos el ejemplo triste del año dos mil Eso fue un muy claro ejemplo de un </p>
+                    <p>problema de mantenimiento Add del sofá y vamos a luchar contra eso. </p>
+                    <p>Por último hablaremos de La Teste habilidad que nos dice cuánto esfuerzo se va realizar </p>
+                    <p>pruebas para demostrar que el código hace lo que tiene que hacer a lo largo de las siguientes
+                        clases </p>
+                    <p>Queremos profundizando en cada uno de los ejes. Lo que no tengas es que los ejemplos que te voy a
+                        mostrar </p>
+                    <p>son funcionales y hasta el logran sus objetivos. Pero Eso no hace a que la calidad de su código
+                        sea </p>
+                    <p>realmente buena. Lo que quiero que te sabes este curso es la capacidad de escribir </p>
+                    <p>código que sea agradable para humanos para las computadoras. </p>
+                    <p>Tenemos las versiones compiladas. Así que te espero en la siguiente clase donde hablaremos </p>
+                    <p>sobre cómo escribir código prolijos </p>
+                </div>
+            </article>
+        </section>
+
+        <hr>
+
+        <section class="row">
+            <article class="col">
+                <h2>Sección 4 de 26 - codigo prolijo</h2>
+                <div class="Resources-description">
+                    <p>El código fuente lo escribimos para personas como tú y yo, para las computadoras tenemos las
+                        versiones compiladas.</p>
+                    <p>Debemos seguir un estándar de codificación, el cual nos ayuda a:</p>
+                    <ul>
+                        <li>Generar código claro y consistente.</li>
+                        <li>Evitar perder tiempo en decisiones triviales.</li>
+                    </ul>
+                    <h4>Tips para mejorar la legibilidad de nuestro código:</h4>
+                    <ul>
+                        <li><strong>Define un estándar:</strong> Piénsalo una vez y déjalo por escrito.</li>
+                        <li><strong>Respétalo:</strong> Haz un esfuerzo por adherir al estándar durante tu día a día.
+                        </li>
+                        <li><strong>Apóyate en algún linter:</strong> Esta sencilla herramienta te ayudará a incorporar
+                            buenas prácticas.</li>
+                    </ul>
+                </div>
+
+                <h2>TRANSCRIPCION</h2>
+                <div class="Transcript-text">
+                    <p>en esta clase y las próximas. Vamos a ver cómo mejorar la legibilidad de nuestro código y</p>
+                    <p>el primer obstáculo a la legibilidad lo hace la prolijidad del Código. </p>
+                    <p>Este código tiene un problema muy claro de elegibilidad, que es que todas las líneas comienzan en
+                        la </p>
+                    <p>misma columna pegadas al al borde Esto. Hace mucho más ningún difícil entender </p>
+                    <p>cuáles de estas líneas corresponden a las estructuras, el IFE y la solución aquí realmente </p>
+                    <p>sencilla. Simplente se trata de averiguar tabulación es o intenta ciones De este modo, queda muy
+                        claro </p>
+                    <p>que esta instrucción pertenece a este bloque No sucede lo mismo en las demás y luego hay </p>
+                    <p>otro problema, o más bien una sugerencia, que es el cómo posicionar las sabes puntualmente </p>
+                    <p>La convención establece que la sabe de apertura. Debería estar justo pegada al paréntesis que
+                        cierra </p>
+                    <p>la condición del IFE Esto. Realmente no es un problema en sí mismo, pero de vuelta es </p>
+                    <p>mejor tratar de agredir a los estándares. Esto también facilita el entender dónde está. </p>
+                    <p>La sabe de de apertura del deliz y donde esta la que cierra nuevamente nos ayuda a </p>
+                    <p>entender rápidamente Esta es la clave es la rapidez con la que podremos entender cuáles son las
+                        líneas </p>
+                    <p>que pertenecen a los bloques y cuáles no. Entonces este es el código que teníamos originalmente.
+                    </p>
+                    <p>Y así se ve el código. Una vez realizadas las adecuaciones En definitiva la diferencia está </p>
+                    <p>en los detalles Recuerda el código fuente descreídos para humanos para gente como tu y </p>
+                    <p>como eso para las computadoras. Tenemos las versiones compiladas. </p>
+                    <p>Y si bien puede ser que ahora los códigos que demostrado te parezcan exactamente iguales, creeme,
+                    </p>
+                    <p>a lo largo del tiempo Qué sucederá lo mismo al ver código mal escrito que cuando </p>
+                    <p>escuchas un instrumento desafinado no será muy agradable. </p>
+                    <p>Dejame demostrarte otro ejemplo para que veamos otro problema que se en el código El </p>
+                    <p>problema con este código que te estoy mostrando. Esta es un poco más sutil. </p>
+                    <p>Nota como el código es puro condicionales. Todos los condicionales se resuelven en </p>
+                    <p>una sola línea. Sí, Sin embargo sin lo vemos todas las primeras condiciones no </p>
+                    <p>utilizan, las sabes Y la última utiliza Sabes, esto implica una una falta de un criterio. </p>
+                    <p>Un común Es porque esta línea utiliza, sabes? Y todas las demás no utilizan Sabes, esto lo que
+                        está </p>
+                    <p>evidenciando es la falta de lo que llamamos un estándar de codificación, que es justamente una
+                        respuesta </p>
+                    <p>a esa pregunta que estaba haciendo de porque en estas y en las demás no Una estándar de
+                        codificación </p>
+                    <p>Justamente lo que nos va a decir es cómo debemos tratar estos casos. </p>
+                    <p>Y justamente como aquí se trata de todas casos similares, deberíamos decir o bien poner </p>
+                    <p>las aves en todos o no poner las aves en ninguno. </p>
+                    <p>Y mi recomendación personal es que pongas las aves en todos los casos, independientemente de si
+                        se </p>
+                    <p>trata de una línea o de muchas niñas. Una estándar de codificación es una serie de reglas que
+                    </p>
+                    <p>te dicen cómo debes escribir tu código El, por ejemplo, debo poner sabes, cuando tengo y </p>
+                    <p>de una sola línea debo poner tabulador. Es debo poner espacios Todo. </p>
+                    <p>Eso son decisiones que deben ser tomadas antes de sentar, de escribir código. </p>
+                    <p>De otro modo, perderas un montón de tiempo en este tipo de preguntas que realmente </p>
+                    <p>no aportan. Entonces, el tener un con un estándar de codificación te ayudará a generar código
+                    </p>
+                    <p>más claro y, sobre todo, más consistente donde Las decisiones se toman siempre del </p>
+                    <p>mismo con el mismo criterio. Por otro lado. Esto evita que pierdas el tiempo en decisiones </p>
+                    <p>realmente te viales que no aportan absolutamente nada a el problema que tiene que resolver. </p>
+                    <p>Qué opinas del código que te estoy mostrando? Tomate algunos segundos para mirarlo y analizarlo.
+                    </p>
+                    <p>Si eso no te hizo DIR los ojos, pues la verdad que te felicito, que sucedió el </p>
+                    <p>código aquí estaba escrito todo en una sola línea. </p>
+                    <p>No tenían ningún tipo de separación de bloques realmente muy, muy difícil. </p>
+                    <p>Ni hablar, que no se puede ni siquiera ver de un solo vistazo porque la nieve a tan larga que no
+                        no </p>
+                    <p>entraba en la pantalla. Así que eso es algo que debemos realmente evitar. </p>
+                    <p>Así que para cerrar te voy a dar algunos tips de cómo mejorar la legibilidad de tu código. </p>
+                    <p>El primero es define un estándar de codificación o mejor todavía, utiliza un. </p>
+                    <p>Aunque sea esté definido así, ni siquiera tienes que perder tu tiempo en eso. </p>
+                    <p>La. Segunda es que no sólo se trata de definir los, sino de respetar. </p>
+                    <p>Lo hace un esfuerzo sobre todo el comienzo. Luego te irás acostumbrando por el comienzo a </p>
+                    <p>su esfuerzo consciente por respetar el estándar en cada código que estés generando. </p>
+                    <p>Y por último, existen algunas herramientas que se suman Linton que permiten analizar </p>
+                    <p>el código contra un estándar y marcarte donde lo has violado. </p>
+                    <p>Y eventualmente de esa manera lo puedes corregir. </p>
+                    <p>En esta clase vimos algunas cosas que debes evitar cuando desarrollas tu código En </p>
+                    <p>la próxima clase. Hablaremos sobre Lo en la importancia de los nombres que le pongas a los
+                        elementos </p>
+                    <p>que creas durante el desarrollo de tu Software. </p>
+                </div>
+            </article>
+        </section>
+
+        <hr>
+
+        <section class="row">
+            <article class="col">
+                <h2>Sección 5 de 26 - Identificadores mnemotécnicos, específicos y precisos</h2>
+                <div class="Resources-description">
+                    <p>Los identificadores son <em>variables, funciones, clases, módulos, componentes, etc</em>.
+                        Elementos a los que nosotros debamos crearles un nombre propio.</p>
+                    <p>Ejemplo sin un identificador mnemotécnico una función se vería así:</p>
+                    <pre><code class="language-php"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f</span><span class="hljs-params">( int $b, int $a )</span> : <span class="hljs-title">float</span> </span>{
+                        <span class="hljs-keyword">return</span> ( $b * $a ) / <span class="hljs-number">2</span>;
+                }
+                </code></pre>
+                    <p>Al leer este código no sabemos para qué funciona y hasta podríamos borrarlo por equivocación.</p>
+                    <p>Ahora utilizando un identificador mnemotécnico se vería así:</p>
+                    <pre><code class="language-php"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">areaRectangulo</span><span class="hljs-params">( int $base, int $altura )</span> : <span class="hljs-title">float</span> </span>{
+                        <span class="hljs-keyword">return</span> ( $base * $altura ) / <span class="hljs-number">2</span>;
+                }
+                </code></pre>
+                    <p>Ahora gracias a que el código es más legible sabemos para qué funciona esta función.</p>
+                    <p><em><strong>Atención a los identificadores</strong> que estableces</em>.</p>
+                </div>
+                <h2>TRANSCRIPCION</h2>
+                <div class="Transcript-text">
+                    <p>dicen que existen dos problemas difíciles en la computación El.</p>
+                    <p>Primero es invalidar los Cases y el segundo es nombrar las cosas. </p>
+                    <p>El primero de los problemas quedan fuera del alcance de este curso. </p>
+                    <p>Vamos a concentrarnos en el segundo Igualmente. Créeme, es dificil el tema de de </p>
+                    <p>los casos Vamos a la entonces primero de que es un identificador. </p>
+                    <p>Y cuando los de un identificador estamos diciendo un nombre que no existe en el lenguaje que
+                        estás usando </p>
+                    <p>sino que lo vas a ir creando. Por ejemplo, una variable, una función, una clase, un módulo, un
+                    </p>
+                    <p>componente, cualquier cosa que en definitiva tengas que crear tu mismo en el código Tomemos </p>
+                    <p>un ejemplo de este código que te estoy mostrando. </p>
+                    <p>Que opinas, que hace esta función? Es obvio que calcula la Asociación de Cibona chino Pues </p>
+                    <p>qué opinas de este otro? Y ahora cómo lo ves? Es un poco más claro, no? </p>
+                    <p>Si bien el cálculo es exactamente el mismo, notaban la diferencia Aquí hay que poner </p>
+                    <p>sea adivinar un poco para empezar, que son los paradores Ha que es ve- El sobre </p>
+                    <p>dos. Bueno, más o menos. No se puede dar una idea, pero aquí no quedan dudas. </p>
+                    <p>sí que es lo que hace esta función. Calcula el área de un triángulo y como la calcula en </p>
+                    <p>base a los parámetros base y altura, En la fórmula clásica del cálculo. </p>
+                    <p>Este otro ejemplo que tiene aquí, pues es un poquito mejor que el función EFE. </p>
+                    <p>Sí, es un poquito mejor, pero cuál es el problema que dice calcular y nos queda la pregunta de
+                        calcular </p>
+                    <p>que sí. Este es un ejemplo correcto. Está calculando el área de un triángulo, no hay dudas. </p>
+                    <p>Y aquí vamos a ver un ejemplo, todavía un poquitito más molestos porque Nota que el </p>
+                    <p>nombre la función es área Rectángulo C. Con lo cual esperaría es que el resultado esta función
+                        sea </p>
+                    <p>el área de un rectángulo. Sí, Sin embargo, sino Tags. </p>
+                    <p>Cómo está hecho el cálculo? Verás que hay algo que no funciona, porque esa no es la fórmula del
+                        cálculo </p>
+                    <p>del área, un rectángulo, sino del área, un de un triángulo. </p>
+                    <p>Entonces, qué es lo que sucede aquí? Tenemos un identificador que si bien es Precisó </p>
+                    <p>podríamos decir le es incorrecto. No es no es realmente es engañoso. </p>
+                    <p>Entonces esto es un gran problema y podrías pensar que este ejemplo está diseñado con </p>
+                    <p>cierta maldad, pues la realidad es que no necesariamente es así. </p>
+                    <p>Lo que usualmente sucede o como se siga esta situación es porque el Código va evolucionando y
+                    </p>
+                    <p>tal vez el que el cálculo cambio. Pero en la persona que escribe el código se olvidó o </p>
+                    <p>no tuvo en cuenta modificar también el nombre de la función que contenía. </p>
+                    <p>Se calculó de modo que tener siempre en cuenta lo importante de tener buenos identificadores y
+                    </p>
+                    <p>el problema que tenim mencionada. Recién que cuando el código vas evolucionando, los
+                        identificadores </p>
+                    <p>también tienen que ir evolucionando con el nota que importante que es para nosotros el tener
+                        identificadores </p>
+                    <p>claros. Esto es algo que realmente a la computadora no le modificar nada, pero a nosotros
+                        realmente </p>
+                    <p>nos va a modificar mucho. Y desafortunadamente, sobre este punto no existen muchas herramientas
+                        automatizadas </p>
+                    <p>que puedan a sudar de una técnica que puede tal vez servirte es pedirle a una persona que esté
+                        cerca </p>
+                    <p>tus o un compañero de equipo que lea tu código y de los que te lo expliquen. </p>
+                    <p>Y si tiene dificultades para hacerlo, pues probablemente haya sea una oportunidad de mejorar En
+                    </p>
+                    <p>la próxima clase. Vamos a charlar sobre la mantenido Ilit Add de tu código Esperon </p>
+                </div>
+            </article>
+        </section>
+
+        <hr>
+
+        <section class="row">
+            <article class="col">
+                <h2>Sección 6 de 26 - codigo modular</h2>
+                <div class="Resources-description">
+                    <p>El código modular son pedazos de códigos divididos que pueden ser utilizados en cualquier lugar
+                        para evitar tener un solo archivo con un bloque de código gigante.</p>
+                </div>
+                <h2>TRANSCRIPCION</h2>
+                <div class="Transcript-text">
+                    <p>La primera técnica sobre la que hablaremos para lograr un código de alta mantenido.</p>
+                    <p>Ilit Add es el código modular. De lo que se trata es de hacer código que esté organizado en forma
+                        de </p>
+                    <p>pequeños bloques que puedan ser compuestos más que en un único bloque. </p>
+                    <p>Así muy grande. Vamos a ver algunos ejemplos. Veamos este código que tiene un </p>
+                    <p>gran bloque único. Sí, esto la verdad es que hace muy difícil encontrarlos, Valls porque </p>
+                    <p>a mayor cantidad de código bueno, lo sabes, quedan más ocultos. </p>
+                    <p>Hay más código por de variar más variables, por tener en cuenta más condicionales. </p>
+                    <p>En fin, se hace muy complicado. Entonces lo primero que podemos hacer es tomar </p>
+                    <p>todo esto que está dentro de este foro que está analizarlo hacia una función. </p>
+                    <p>Por ejemplo, me voy a poner una F porque todavía no tengo muy claro qué es lo que hacen, pero que
+                    </p>
+                    <p>siendo el código vemos que en primero bueno, se busca algo en una base de datos, eh? </p>
+                    <p>Por último realiza un eco. O sea, muestra algo en primera digo, en la pantalla. </p>
+                    <p>Entonces me parece que un nombre que puede andar bien es Imprimir registro, eh? </p>
+                    <p>Lo que voy a hacer es este foro cambiarlo por La semana. </p>
+                    <p>La función imprimir registró tantas veces como sea necesario. </p>
+                    <p>Luego veo aquí que hay un una lógica que está haciendo alguna alguna regla que parece ser del
+                        negocio </p>
+                    <p>que dice si la hora es menor que trabajó, entonces se calculan estos dos elementos </p>
+                    <p>que son hora en que se supo que será de ahora. De entrada hora S, hora de salida y </p>
+                    <p>dependiendo de justamente esta condición, cuáles son los valores que toman esos esas </p>
+                    <p>variables? Y luego se están pasando a través de algunas otras en sí, sí, algunas otras funciones
+                    </p>
+                    <p>Pero bueno, en definitiva, Esto parece ser un cálculo que tiene algún sentido dentro del código.
+                    </p>
+                    <p>Entonces voy a nuevamente, tratar de externalizar lo hacia una función que lo que tendría que
+                        hacer </p>
+                    <p>esta función es recibir la hora y el trabajo y devolver hora Entrada y hora de salida francés
+                    </p>
+                    <p>Vamos a ver, calcular horario. Vamos a poner le, que reciba la hora, el trabajo y </p>
+                    <p>en este caso, cómo va a devolver dos paramentos? </p>
+                    <p>Dos variables. Voy a decir Que, devuelvan un arreglo aquí, pero el el código, eh? </p>
+                    <p>Lo que voy a hacer es justamente de volver El arreglo que contiene Ahora entrada y </p>
+                    <p>hora de salida. Y con eso el código me quedo un poquito más. </p>
+                    <p>En realidad, todavía aquí tengo que llamar a la la función sino no, no he hecho nada realmente
+                    </p>
+                    <p>útil. Vamos a escribir esto es una una forma abreviada en PHP de asignar dos variables alavés
+                        Alquilar </p>
+                    <p>Binario. Donde voy a pasar hora, eh? Trabajo De ese modo El código me quedo un poco más
+                        estructurado </p>
+                    <p>todavía. Esto no se podría mejorar mucho más, pero creo que más o menos la la </p>
+                    <p>idea sea está comprendida. Y lo interesante de tenerlo así es que si de repente hay </p>
+                    <p>un problema en el cálculo de horario, pues nada, simplemente tengo que entrar aquí y corregirlo
+                    </p>
+                    <p>No tengo que estar hurgando entre todo el código que existía antes. </p>
+                    <p>Lo mismo sucederá. Sí, detectó un problema al imprimir el el registro. </p>
+                    <p>Bueno, por ahí se puede estructurar un poquito mejor para que sea más claro todavía, que es poner
+                    </p>
+                    <p>por ejemplo, todas las funciones al final y ahí el código queda mucho más fácil de leer. </p>
+                    <p>En esta clase viste como se puede modular Izar un código y los beneficios que esto aporta en </p>
+                    <p>principalmente en cómo encontrar más rápido los vais ahora pensamos un poco en cuáles </p>
+                    <p>son los candidatos típicos. Han ser modular, izados o están realizados hacia funciones y </p>
+                    <p>típicamente los que se pueden hacer son los que están los bloques que están dentro de una
+                        repetitiva </p>
+                    <p>Fórum White los que están dentro de una con de un condicional. </p>
+                    <p>Las propias expresiones de la condición, cuando son muy complejas, también suelen valer la pena
+                        hacerlas </p>
+                    <p>como una función que devuelva verdadero o falso y en general, código que hace cálculos complejos
+                        y </p>
+                    <p>sobre todo, que se deban realizar un con mucha frecuencia De hecho de eso es lo que vamos a
+                        charlan </p>
+                    <p>en la clase que viene, que veremos cómo hacer código reutilizable No vemos </p>
+                </div>
+            </article>
+        </section>
+
+        <hr>
+
+        <section class="row">
+            <article class="col">
+                <h2>Sección 7 de 26 - codigo reutilizable</h2>
+                <div class="Resources-description">
+                    <p>Escribir código reutilizable nos va a ayudar a que en lugar de copiar y pegar una misma línea de
+                        código pero con diferentes parámetros lo hagamos a través de una función que retorne los valores
+                        que necesitamos y luego la podremos llamar en cualquier lugar del código que necesitemos
+                        pasándole los parámetros que deseamos.</p>
+                </div>
+                <h2>TRANSCRIPCION</h2>
+                <div class="Transcript-text">
+                    <p>La Nación de reutilizado Ilit Add del Código está muy relacionada con la clase anterior de código
+                        modular</p>
+                    <p>La idea es poder escribir código que sea justamente posible de utilizar en diferentes situaciones
+                        Para </p>
+                    <p>lograr eso. Vamos a necesitar primero que el código sea muy claro respecto de su objetivo y </p>
+                    <p>que efectivamente puede hacer aplicable a diferentes escenarios En la práctica. </p>
+                    <p>Esto se logra desarrollando mediante funciones que región parámetros y vuelvan resultados. </p>
+                    <p>La idea aquí es internalizar uno de los conceptos principales del desarrollo de sofá, que es que
+                        el </p>
+                    <p>copyright es tu peor enemigo. Sí, por qué digo esto? </p>
+                    <p>Pues lo que sucede es que cuando el código se van copiando y pegando, lo que va a suceder es </p>
+                    <p>que un error que está en un lugar se va arrastrando hacia infinidades de otros lugares del del
+                    </p>
+                    <p>Código. Y lo que sucede justamente es que nunca vas a poder estar seguro de cuando terminaste de
+                        corregirlo </p>
+                    <p>por completo. Porque como sabes que ese error no está todavía en algún otro lugar? </p>
+                    <p>Si así que vamos a ver un ejemplo de cómo podemos hacer un poco más reutilizable un código. </p>
+                    <p>Retomamos el ejemplo que veíamos en la clase anterior Nota. </p>
+                    <p>Como aquí hay muchas instancias en las que se utiliza la misma, la misma lógica de la función
+                        para </p>
+                    <p>reemplazar el carácter, sino me pregunta por la N O tal vez sea al revés. </p>
+                    <p>No, no importa en realidad, pero esa esa lógica se aplica a una serie de diferentes </p>
+                    <p>variables. Sí, qué sucede? Qué pasará el día que hasta que cambiar esta este </p>
+                    <p>reemplazo donde la en esa no sea más una etnia, sino que sea No, sé tal vez una </p>
+                    <p>M o cualquier otra cosa. Sí, habrá que hacer un reemplazo por una cantidad muy </p>
+                    <p>importante de lugares del código. Entonces tres, una forma mejor de lograr eso es crear otra </p>
+                    <p>función que fuera algo así como normalizar que de lo que se trata, justamente ese normalizar </p>
+                    <p>algún parámetro cualquiera, por ejemplo, campo. </p>
+                    <p>Y esta función, por ahora, va a ser algo muy, muy sencillo, que es simplemente </p>
+                    <p>esto y decir campo. Entonces todas las instancias en las que se está haciendo explícitamente el
+                        reemplazo </p>
+                    <p>van a cambiar por normalizar este campo. Y eso lo aplicaremos a todas las demás instancias </p>
+                    <p>Ahora que tiene esto de de mejor, en definitiva. </p>
+                    <p>Bueno, pues lo que tiene es que para empezar, bueno, en este caso la función de normalización
+                        parece </p>
+                    <p>super sencilla, pero eso podría no ser realmente así. </p>
+                    <p>Podría hacer que el día de mañana en la normalización implica hacer una cantidad de pasos
+                        bastante </p>
+                    <p>más complejos que está o nuevamente que cambie los caracteres que se reemplazan de un lado al
+                        otro. </p>
+                    <p>Entonces, al tener La función en lo que somos encapsulada, esto permite de alguna manera
+                        olvidarse </p>
+                    <p>de cuales efectivamente, el modo de normalizar y pasamos a tener una operación que tiene sentido
+                        dentro </p>
+                    <p>de nuestro del universo. Nuestra aplicación, que es decimos, es normalizar. </p>
+                    <p>Ya está. Tenemos un concepto un poco más abstracto Durante esta clase. </p>
+                    <p>Aprendiste como escribir código más reutilizable y su importancia tanto para prevenir vals como
+                    </p>
+                    <p>para corregirlos. Si eventualmente aparecen durante la próxima clase, hablaremos sobre cómo
+                        organizar </p>
+                    <p>tu código. Te veo así </p>
+                </div>
+            </article>
+        </section>
+
+        <hr>
+
+        <section class="row">
+            <article class="col">
+                <h2>Sección 8 de 26 - Codigo organizado</h2>
+                <div class="Resources-description">
+                    <p>El código organizado se refiere a cómo tenemos distribuido nuestros archivos en la raíz
+                        (<em>root</em>) del proyecto. <em>A mayor organización, mayor entendimiento del código</em>.</p>
+                </div>
+                <ul>
+                    <li>/public</li>
+                    <li>/src</li>
+                    <li>/tests</li>
+                    <li>/vendor</li>
+                </ul>
+                <h2>TRANSCRIPCION</h2>
+                <div class="Transcript-text">
+                    <p>Cuando hablamos de Code organizado nos referimos a como está el código distribuido dentro del
+                        sistema</p>
+                    <p>Archivos o cómo está organizado dentro de los archivos. </p>
+                    <p>No estamos hablando sea tanto de cómo está escrito, sino justamente como están dispuestos
+                        entonces </p>
+                    <p>Lo que estamos tratando de lograr es que nuestro código se parezca más a esto que </p>
+                    <p>a esto. Sí, cosas que pueden atentar contra este objetivo es, por ejemplo, tener un </p>
+                    <p>archivo que se llama algo así como funciones y que adentro contenga cosas que no son funciones.
+                    </p>
+                    <p>Si estos debe ser siempre lo más fácil de de leer e interpretar Usualmente lo queremos es agrupar
+                    </p>
+                    <p>los archivos que tienen contenido similar en directorios que tengan también un sentido en común.
+                    </p>
+                    <p>Un ejemplo de PHP moderno Es esta estructura directorio El directorio Public contendrá </p>
+                    <p>todos los archivos que son accesibles directamente desde afuera del servidor El </p>
+                    <p>directorio, SRC, shorts o código fuente contendrá todos los archivos propios de nuestro proyecto.
+                    </p>
+                    <p>Sea el código que escribimos nosotros. El directorio Text tendrá las pruebas unitarias o, en
+                        general </p>
+                    <p>las pruebas que se realicen y el directorio vender contendrá todos los archivos de librerías de
+                        terceros </p>
+                    <p>que estemos utilizando en nuestro proyecto Un detrás. </p>
+                    <p>Importante es notar que estos se trata exclusivamente de una convención. </p>
+                    <p>No es realmente una imposición, pero por supuesto que como todo el resto de las convenciones, a
+                        Sudán </p>
+                    <p>mucho a no tener que estar de de once pensando en cosas que no nos no, no son realmente
+                        importantes </p>
+                    <p>como ser donde pongo los archivos de mi proyecto. </p>
+                    <p>Y lo mismo va a suceder cuando el proyecto no tiene Continue otra persona, al tener </p>
+                    <p>una estructura en común, sea esa persona, se orientar mucho más fácilmente respecto de donde </p>
+                    <p>tiene que encontrar cada una de las cosas. En los archivos que acompañan esta clase encontrarás
+                        un </p>
+                    <p>reto que se trata de tomar un código y reorganizar los, de modo que sea modular, reutilizable y
+                        que </p>
+                    <p>cumpla con todas las buenas prácticas que venimos viendo hasta el momento. </p>
+                    <p>Una vez que lo has has terminado, por favor, deja en los comentarios como te quedó el código y
+                    </p>
+                    <p>luego te veo en la próxima clase, donde hablaremos sobre los vicios que como programador debes
+                    </p>
+                    <p>erradicar </p>
+                </div>
+            </article>
+        </section>
+
+        <hr>
+
+        <section class="row">
+            <article class="col">
+                <h2>Sección 9 de 26 - Evitar el hardcoding</h2>
+                <div class="Resources-description">
+                    <p>El <em>hardcoding</em> es la práctica de escribir valores literales en lugar de identificadores.
+                        <em><strong>No debe de usarse</strong></em>, ya que si el día de mañana debemos cambiar los
+                        valores eso significa que debemos cambiar el código en los lugares que esté ese valor estático
+                        por completo y luego mandar a producción, cuándo podríamos hacer el cambio más orgánico en una
+                        variable que afecte a todos los lugares que es llamada.
+                    </p>
+                </div>
+                <h2>TRANSCRIPCION</h2>
+                <div class="Transcript-text">
+                    <p>uno de los vicios de programación más extendidos y más difíciles de erradicar.</p>
+                    <p>Lo Constitución Jarkov en el jardín es la práctica de escribir en valores literales en lugar de
+                        identificadores </p>
+                    <p>Esto con sea una consecuencia muy clara, que es que el día de mañana, cuando estos valores tengan
+                    </p>
+                    <p>que ser modificados El único modo de realizar esta modificación va a ser, efectivamente, impactar
+                    </p>
+                    <p>en el código. Y eso implica no sólo obviamente impactar el código, sino volver </p>
+                    <p>a desplegar el código y, en definitiva, desestabilizar un sistema que tales ya venía funcionando,
+                    </p>
+                    <p>cuando en realidad se trata simplemente de un cambio muy sencillo que debería pasar </p>
+                    <p>casi que desapercibido El punto es que las cosas que están escritas en piedra son </p>
+                    <p>difíciles de modificar. Un ejemplo que me gusta utilizar es el cálculo del IVA de </p>
+                    <p>mi país, socio de Argentina. El IVA es del veintiuno por ciento. </p>
+                    <p>Si eso quiere decir que uno podría escribir un código donde acá, precio que se le calcula
+                        aplicarle </p>
+                    <p>una multiplicación por uno punto veintiuno, como el ejemplo que tenía mostrar continuación. </p>
+                    <p>Bueno, veremos este código donde tenemos un precio inicial que es un argumento que se le recibe
+                    </p>
+                    <p>el programa y se le aplica el IVA simplemente multiplicando lo por uno punto veintiuno. </p>
+                    <p>Luego siempre un mensaje que dice El valor del IVA es el veintiuno por ciento. </p>
+                    <p>Y aquí se muestra el precio CON IVA y el precio sin IVA. </p>
+                    <p>Sí, pues hasta aquí este código funciona perfectamente bien. </p>
+                    <p>No tiene ningún problema. El problema va a suceder cuando ojalá que suceda el IVA disminuya </p>
+                    <p>por ejemplo, al diecisiete por ciento. Y entonces qué vamos a hacer? </p>
+                    <p>Bueno, para empezar, vamos a tener que efectivamente impactar en nuestro código y </p>
+                    <p>hacer como mínimo esta modificación. Sí, Ahora, que sucede con esto? </p>
+                    <p>Si yo dejo esta modificación y nuevo, ninguna otra. </p>
+                    <p>Hay un problema en el programa. Te voy a dejar un par de segundos para que trates </p>
+                    <p>de detectarlo. Pues el problema es que este mensaje sea es incorrecto. </p>
+                    <p>El IVA no es más del veintiuno por ciento. El IVA acabo de decir ha cambiado por el diecisiete
+                        por </p>
+                    <p>ciento. Entonces, Qué sucede, Como se dice la modificación solamente aquí este </p>
+                    <p>mensaje, pues o sea, es incorrecto. Sí, de modo que es lo que estamos tratando de hacer y es la
+                    </p>
+                    <p>solución que te voy a mostrar en un momento es una forma de que El cambio se haga en </p>
+                    <p>un solo lugar y eso automáticamente impacte en todos los lugares donde sea necesario. </p>
+                    <p>Sí, una una solución con para empezar a intentarlo es simplemente definir una, una variable que
+                    </p>
+                    <p>sea cuando es el el valor del IVA, por ejemplo, El cero punto veintiuno sería </p>
+                    <p>una una posibilidad para para empezar. Y entonces lo que voy a hacer es decir que esto </p>
+                    <p>se calcula como uno más El iban y entonces aquí lo que voy a hacer es decir que </p>
+                    <p>vamos a poner el cálculo de esos iban Por se han por ciento y pues con esto se hasta resolví </p>
+                    <p>digamos, el problema de que el día que se quiera cambiar por un diecisiete por ciento simplemente
+                    </p>
+                    <p>vengo aquí y cambió y se hasta automáticamente ese cambio se ha propagado a todo el código. </p>
+                    <p>Si esto es una primera aproximación que no está mal, va a funcionar bien Pero una </p>
+                    <p>cosa que se podría hacer que estoy un poquito mejor es externalizar este este valor del IVA hacia
+                    </p>
+                    <p>algún tipo de archivo de configuracion o, por ejemplo, voy a definir una variable que </p>
+                    <p>va a ser va a contener un arreglo con todas las configuraciones que voy a leer de un archivo de
+                        configuracion </p>
+                    <p>y aquí voy a utilizar esta función de PHP para incorporar el archivo de configuracion a </p>
+                    <p>mi programa. Esto es una constante que simplemente hace referencia al directorio actual de la
+                        aplicación </p>
+                    <p>Y a esto le voy a concatenar el nombre de mi archivo de configuracion que Estos </p>
+                    <p>también un nombre que Hutin se utiliza muy a menudo. </p>
+                    <p>Y lo que voy a hacer entonces es quitar el valor justamente Jarkko dejado Jarkko del cero </p>
+                    <p>punto diecisiete y decir voy a tomarlo de mi arreglo que se semana en valor iba y </p>
+                    <p>luego entonces, en el archivo de este, estará pues definido un un arreglo que contenga este </p>
+                    <p>valor y de esa manera se hasta me ahorro tener que modificar el programa en el caso de que el IVA
+                        se </p>
+                    <p>modifique para arriba, para abajo o de cualquier otra manera. </p>
+                    <p>Si esta es una muy buena forma de evitar el alcohol en Otro efecto muy desagradable que tiene
+                        dejar </p>
+                    <p>Cohen es que oculta información. Qué sucede cuando tú estás esa rosa? </p>
+                    <p>No tienes un montón de conceptos en tu cabeza que los tienes super frescos. </p>
+                    <p>Entonces a veces es más fácil o más rápido escribir directamente volcando esos conceptos al </p>
+                    <p>al código Pero. Qué sucede? El día de mañana, cuando vuelvas a retomar ese código, te encontrarás
+                    </p>
+                    <p>con ciertos valores que será muy difícil encontrarle sentido. </p>
+                    <p>Déjame que te lo diga usted con este ejemplo Imagina que tienes una una aplicación que tiene que
+                        manejar </p>
+                    <p>un depósito de mercadería por decir algo y en algún momento tienes que validar, que la </p>
+                    <p>cantidad de mercadería que vas a ingresar ese depósito no supere las treinta unidades, porque
+                        simplemente </p>
+                    <p>esa es la capacidad que tiene el depósito de una forma muy simple de hacer esa validación sería
+                        esto </p>
+                    <p>escribir y f cantidad es mayor que treinta. Pues esto no no funciona. </p>
+                    <p>Qué sucede? Eso que te comentaba el día de mañana, cuando tengo antes con este código dirás Qué
+                    </p>
+                    <p>significa este treinta de donde, de donde ha salido esto? </p>
+                    <p>Si una forma entonces un poco mejor de escribir. Esto sería dotar a la propia clase depósito
+                        donde </p>
+                    <p>a una constante, por ejemplo, capacidad máxima igual a treinta, que es el caso actual </p>
+                    <p>Y luego, en lugar de escribir el idéntico, el identificador literal, podríamos decir depósito
+                    </p>
+                    <p>capacidad máxima si de este modo se logran dos cosas Para empezar es el evitar el </p>
+                    <p>chat, estar diseminando el treinta por todos lados del Código y por otro lado, es levantar un
+                        poco </p>
+                    <p>el nivel de abstracción. Y sea queda mucho más claro que es lo que estas validando que </p>
+                    <p>es que la cantidad no supere la capacidad máxima del depósito. </p>
+                    <p>Creo que de esa manera no quedan dudas. En esta clase. </p>
+                    <p>Aprendiste que es el salto? Bien, porque es malo. </p>
+                    <p>Y como puedes evitarlo En la próxima clase. Hablaremos sobre cómo evitar los efectos colaterales
+                        del </p>
+                    <p>sofá. Te veo así. </p>
+                </div>
+            </article>
+        </section>
+
+        <hr>
+
+        <section class="row">
+            <article class="col">
+                <h2>Sección 10 de 26 - Evitar efectos colaterales</h2>
+                <div class="Resources-description">
+                    <p>Debemos analizar <strong>muy bien</strong> nuestro código para evitar efectos colaterales y
+                        evitar que nuestro código deje de funcionar. Un consejo de nuestro profesor en esta clase:
+                        <strong>No uses variables globales</strong>.
+                    </p>
+                </div>
+                <h2>TRANSCRIPCION</h2>
+                <div class="Transcript-text">
+                    <p>Otros los vicios que de programación que debemos evitar es la generación de efectos colaterales.
+                    </p>
+                    <p>Un efecto colateral es algo que sucede más allá del código que se está le siendo. </p>
+                    <p>Un ejemplo de esto muy claro es la modificación de una variable global. </p>
+                    <p>Vamos a un ejemplo Veamos lo que hace este código empieza a definir una variable nombre que </p>
+                    <p>es Mauro una edad. Dieciocho. Que mis canas no me deja mentir, Sean o no es la mía. </p>
+                    <p>Luego llama una función que se llama imprimir datos que su pondremos porque todavía no la
+                        vivimos. </p>
+                    <p>Pero suponemos que lo que harán será imprimir alguna cosa por pantallas Han y luego preguntará
+                    </p>
+                    <p>si es mayor de edad, teniendo en cuenta la variabilidad que vale dieciocho. </p>
+                    <p>Entonces imprimirá es mayor En. Caso contrario, no hará nada. </p>
+                    <p>Entonces empezamos a ver qué es lo que hace. La función es mayor de edad, pues la muchas
+                        funciones </p>
+                    <p>más orden al devuelve verdaderos y el parámetro recibido es mayor de dieciocho y </p>
+                    <p>falso En. Caso contrario, con lo cual, antes de meternos en un primer datos, si leemos este
+                        código </p>
+                    <p>diremos que esto no va no a imprimir nada, pues es mayor de edad va de flor falso, ya que
+                        dieciocho </p>
+                    <p>no es mayor que dieciocho Ahora que sucede? Veamos que pasa en la función imprimir datos. </p>
+                    <p>Lo primero que hay que notar es que aquí se estas en una definición de variables que </p>
+                    <p>al tener este este prefijo, esta identificador, que es un global, lo que está diciendo es que las
+                    </p>
+                    <p>variables, edad y nombre no van a hacer nuevas variables, sino que se van a reutilizar las </p>
+                    <p>variables que están aquí tomas viéndose a reutilizar, sino que se hace referencia a </p>
+                    <p>estas variables. Con lo cual lo que a suceder es que se va a imprimir nombre dos </p>
+                    <p>puntos, dieciocho y luego se va incrementar la variabilidad en un, con lo cual después </p>
+                    <p>de la función en primero datos, la variable edad va, su valor va a ser diecinueve. </p>
+                    <p>Entonces, al volver, mira, es mas Ordet Add y diecinueve si es mayor de dieciocho, con lo cual si
+                    </p>
+                    <p>se imprimirá es mayor. Esto que observamos es un efecto colateral, porque la función está </p>
+                    <p>no sólo haciendo lo que se supone que debe hacer, que es imprimir los datos que debía imprimir,
+                        sino </p>
+                    <p>también modificando algo que no le pertenece y, en definitiva, eso es lo que hace es que bueno
+                    </p>
+                    <p>pues no genera una confusión bastante importante porque del en este código no esperaríamos que
+                    </p>
+                    <p>efectivamente se imprima esto. Sin embargo, eso es lo que va a suceder en la vida real. </p>
+                    <p>El problema, en definitiva, que acarrean los efectos colaterales es que para entender cómo
+                        funciona </p>
+                    <p>el programa, que es lo que está haciendo y especialmente para de variarlo, no nos alcanza con
+                        entender </p>
+                    <p>lo que lo que tienes, lo que estamos viendo tenemos que tener en cuenta un monton de otras cosas
+                        del </p>
+                    <p>contexto o, en otras palabras, tenemos demasiadas vueltas en el aire, lo cual la verdad que nos
+                        dificulta </p>
+                    <p>mucho nuestra tarea Si bien. Es muy difícil eliminar por completo los efectos colaterales, porque
+                    </p>
+                    <p>necesitamos a veces imprimir archivos, guardar en una base de datos, en memoria compartida,
+                        etcétera </p>
+                    <p>Tenemos que ser muy conscientes de cuando los estamos utilizando y minimizar esas </p>
+                    <p>ocurrencias. Un tipo en este sentido es no utilizaron nunca jamás variables globales En </p>
+                    <p>los archivos que acompañan esta clase encontrarás un nuevo reto donde Deberás analizar un código
+                        y detectar </p>
+                    <p>los vicios presentes en el realizarlo. Y comen también, como te ha quedado el código al final.
+                    </p>
+                    <p>Y bien, hasta el momento hemos visto ciertos principios generales de la buena escritura de
+                        código. </p>
+                    <p>A partir de la clase siguiente nos vamos a concentrar en buenas prácticas de programación
+                        orientada </p>
+                    <p>a objetos y particularmente de lo que vamos a charlar en la próxima clase es de los principios
+                        sólidos </p>
+                    <p>que son los lineamientos que te permitirán general aplicaciones más robustas y escalables desde
+                    </p>
+                    <p>el comienzo. Así que nos vemos ahí. </p>
+                </div>
+            </article>
+        </section>
+
+        <hr>
+
+        <section class="row">
+            <article class="col">
+                <h2>Sección 11 de 26 - Principios SOLID: Single REsponsability Principle</h2>
+                <div class="Resources-description">
+                    <p><strong>SOLID</strong> son cinco principios básicos de la programación orientada a objetos que
+                        ayudan a crear software mantenible en el tiempo.</p>
+                    <p><strong>SOLID</strong> significa:</p>
+                    <ul>
+                        <li><strong>S:</strong> Single Reponsibility Principle</li>
+                        <li><strong>O:</strong> Open/Closed Principle</li>
+                        <li><strong>L:</strong> Liskov Substitution Principle</li>
+                        <li><strong>I:</strong> Interface Segregation Principle</li>
+                        <li><strong>D:</strong> Dependency Inversion Principle</li>
+                    </ul>
+                    <p>La <strong>S</strong> se trata de una clase que debe tener sólo <strong>una</strong> razón para
+                        cambiar.</p>
+                </div>
+                <div class="Transcript-text">
+                    <p>sólida. Es un acrónimo en inglés que hace referencia a cinco principios básicos del diseño
+                        orientado</p>
+                    <p>a objetos Su. Objetivo siempre es apuntar a desarrollar aplicaciones más fácilmente </p>
+                    <p>mantenible es a lo largo del tiempo. La idea siempre es tratar de aplicar estos principios
+                        mientras </p>
+                    <p>vamos desarrollando nuestro Software Sin embargo, también es posible una vez que no tenemos
+                        desarrollado </p>
+                    <p>volver a mirarlo a la luz de los principios sol y ver qué modificación se le pueden hacer para
+                    </p>
+                    <p>hacerlo más robusto en el tiempo. Concretamente Las filas son la es es de cinco </p>
+                    <p>responsables del principio o principios de responsabilidad única o que entre los principios o
+                    </p>
+                    <p>principio de abierto o cerrado, le Scope su institución. </p>
+                    <p>Principio del principio de sustitución del disco interferirse. </p>
+                    <p>Que veáis un príncipe o principio de segregación de interfase y dependencia inverso. </p>
+                    <p>Un principio o principio de Inversión de dependencia. </p>
+                    <p>A continuación vamos a hablar sobre el primero de los principios. </p>
+                    <p>El cinco lo responsabiliza y Principado el principio de responsabilidad única. </p>
+                    <p>Lo que nos dice es que una clase debería tener un único objetivo muy claro, muy conciso y </p>
+                    <p>sobre todo eso, muy acotado. También se conoce este principio como la alta cohesión es </p>
+                    <p>otra forma de decir un poco lo mismo. La ventaja de aplicar este principio es que hace </p>
+                    <p>muy fácil detectar los problemas que pueden sucederse. </p>
+                    <p>Es decir, como cada clase tiene una única responsabilidad, es muy claro detectar que si Fashion
+                        esto </p>
+                    <p>este es el culpable. Por otra parte. Al tener clases que hacen un trabajo muy específico, son
+                        mucho </p>
+                    <p>más reutilizables. Es mucho más sencillo tomar esta clase y aplicarla a otro contexto </p>
+                    <p>la. La idea aquí siempre es tratar de evitar esto, que es el hombre, el hombre orquesta. </p>
+                    <p>Sí, una clase que hace muchas cosas y independientemente de si hasta hace bien o mal, cuando
+                        tiene </p>
+                    <p>demasiada responsabilidad, seguramente van a aparecer problemas. </p>
+                    <p>Vemos un ejemplo muy claro de violación de este principio Aqui. </p>
+                    <p>Vemos entonces una clase usuario que tiene tres métodos, uno que dice format Luis Pons que </p>
+                    <p>lo que hace es aparentemente mostrar unos resultados o más bien dejar resultados </p>
+                    <p>listos como para ser enviados al al cliente mostrado por pantalla CEO. </p>
+                    <p>Alguna cuestión así tiene otra Otro método que es validar un usuario y otro método de traer un
+                        usuario </p>
+                    <p>de la base de datos. Es bastante claro que aquí se trata de tras responsabilidades completamente
+                        separadas </p>
+                    <p>no tiene mucho sentido que éstas estén todas en una misma clase. </p>
+                    <p>Lo correcto para respetar el principio de responsabilidad única sería tener tales tres </p>
+                    <p>clases separadas. Una clase Yum sabe que guarde las propiedades propias del usuario, como en este
+                    </p>
+                    <p>caso será su nombre, su nombre de usuario, el rango y el y el puntaje, el score, otra clase que
+                    </p>
+                    <p>se encargue de validar el usuario con todas las reglas que hagan a la validación del usuario.
+                    </p>
+                    <p>Y por último, una clase tipo Users repositorio un repositorio usuarios, que es el que se encargue
+                    </p>
+                    <p>de hacer la comunicación con la base de datos. Eso sería realmente algo mucho más correcto </p>
+                    <p>Y después se pueden componer esas clases según vas haciendo necesario En la próxima clase. </p>
+                    <p>Hablaremos sobre el segundo de los principios. El principio de abierto o cerrado. </p>
+                    <p>Nos vemos </p>
+                </div>
+            </article>
+        </section>
+
+        <hr>
+
+        <section class="row">
+            <article class="col">
+                <h2>Sección 12 de 26 - Open/Closed Principle</h2>
+                <div class="Resources-description">
+                    <p>Open/Closed Principle establece que una entidad de software debe quedarse <strong>abierta para su
+                            extensión</strong>, pero <strong>cerrada para su modificación</strong>.</p>
+                </div>
+                <h2>TRANSCRIPCION</h2>
+                <div class="Transcript-text">
+                    <p>el principio de Abierto cerrado nos propone una forma de estructurar nuestras clases de</p>
+                    <p>modo de poder adaptarse a nuevos requerimientos sin tener que modificar su estructura interna.
+                    </p>
+                    <p>La idea es que si se nos aparece un nuevo requerimiento, que es de algunos similar a </p>
+                    <p>uno que sea, teníamos antes no tengamos que tirar la mitad de nuestro código, sino simplemente
+                        crear </p>
+                    <p>el nuevo componente y ese se adapte. Naturalmente Este principio es de su importancia cuando
+                        tenemos </p>
+                    <p>un Software de mediano a gran tamaño, porque justamente hace una modificación sobre un sofá muy
+                    </p>
+                    <p>grande. Es un proyecto de muchos riesgos, sobre todo y por otro lado, vamos a ver, sea en el
+                        código </p>
+                    <p>que si no nos respetamos muy rápidamente nos vamos a encontrar con métodos primero </p>
+                    <p>muy grandes y se nos de casos especiales. Y la verdad es que no es tan complejo el </p>
+                    <p>implementarlo. Simplemente se trata de repartir un poco mejor las responsabilidades entre la
+                        clases </p>
+                    <p>Amadora y la clases llamada. Ahora vamos a ver un ejemplo Aquí vemos una clase que se </p>
+                    <p>encarga de procesar ciertos documentos, como pueden ser las títulos, documentos, una empresa, no
+                    </p>
+                    <p>facturas, recibos, etcétera. Entonces tenemos un método que se llama procés, que efectivamente
+                        ahora </p>
+                    <p>el procesamiento y recibe una rey de documentos. Documentos que justamente son de diferentes </p>
+                    <p>clases y lo que estamos viendo aquí es cómo se recorre ese ese arreglo y por cada uno los
+                        documentos </p>
+                    <p>Se hace la pregunta de se trata de una factura? Entonces habrá que hacerle un envió </p>
+                    <p>al cliente. Se trata de un recibo. Entonces hay que archivarlo. </p>
+                    <p>Se trata de un memo. Entonces, simplemente marcarlo. </p>
+                    <p>Como he leído, esto va a funcionar bien, siempre y cuando no aparezca un nuevo tipo de documento
+                        que </p>
+                    <p>no sea ni una factura, ni un recibo, ni un memo. </p>
+                    <p>Que pasará cuando, por ejemplo, aparezca un documento de tipo nota de crédito, pues la </p>
+                    <p>única forma de resolver esto será a ver, llegar un nuevo caso a este proceso y </p>
+                    <p>tratarlo especialmente. Vamos a ver una forma un poco mejor de implementarlo. </p>
+                    <p>Aquí lo que vemos es de una función, un método, procés que reciben nuevamente el mismo arreglo de
+                    </p>
+                    <p>documentos. Pero sí lo lo miramos un poco mejor. </p>
+                    <p>Lo que hace simplemente es llamar a un método, proceso de cada uno de los documentos. </p>
+                    <p>Entonces, qué es lo que sucede? En definitiva, es lo que está pasando es que la </p>
+                    <p>responsabilidad de definir específicamente de qué se trata procesar cada tipo de documento
+                        especial </p>
+                    <p>queda en la propia clase documento, o sea, la clase Vim Boys tendrá su propio método Process.
+                    </p>
+                    <p>La clase Memo tendrá su propio método, procés, etcétera. </p>
+                    <p>Si de esa forma sa ala Aldo processor no le importa, no tienen más conocimiento de las clases
+                        específicas </p>
+                    <p>de que se trate, con lo cual, cuando aparezca la nota de crédito Simplemente será crear </p>
+                    <p>una nueva clase. No te de crédito y todo lo que tendra que tener es un método, proceso que </p>
+                    <p>pueda ser invocado por el dos processor de esta. De esta forma, es clarísimo que esto puede ser
+                        extendido </p>
+                    <p>tanto como sea necesario. En esta clase aprendiste cómo diseñar tus clases, de modo que sean más
+                        fácilmente </p>
+                    <p>adaptables a cambios en el entorno. En la próxima clase, veremos el principio de sustitución del
+                        disco </p>
+                    <p>Espero así </p>
+                </div>
+            </article>
+        </section>
+
+        <hr>
+
+        <section class="row">
+            <article class="col">
+                <h2>Sección 13 de 26 - Liskov Substitution Principle</h2>
+                <div class="Resources-description">
+                    <p>El <strong>Liskov Substitution Principle</strong> establece que cada clase que hereda de otra
+                        puede usarse como su padre sin necesidad de conocer las diferencias entre ellas. Para que pueda
+                        darse este principio debe cumplir con dos puntos:</p>
+                    <ul>
+                        <li>El cliente debe usar métodos de la clase padre únicamente.</li>
+                        <li>La clase hija no debe alterar el comportamiento de los métodos de la clase padre.</li>
+                    </ul>
+                </div>
+                <h2>TRANSCRIPCION</h2>
+                <div class="Transcript-text">
+                    <p>En esta clase. Te voy a hablar sobre el principio de sustitución del disco Este</p>
+                    <p>Principio Lo que establece es que en una relación de herencia, cualquier situación en la que se
+                        necesite </p>
+                    <p>utilizar un objeto de una clase padre debe poder recibir también un objeto de cualquier clase
+                        hija, </p>
+                    <p>sin conocer las diferencias entre esos Veamos. Un ejemplo donde tenemos una clase padre, una
+                        clase </p>
+                    <p>dijo que extiende la clase padre y la función EFE que recibe un objeto de clase, padre. </p>
+                    <p>Luego se crea una instancia de la clase hijo y se pasa esa instancia como parámetro a la función
+                        EFE </p>
+                    <p>que funcione. Fe está esperando recibir un objeto de clase, padre. </p>
+                    <p>Pero si recuerdas esto es perfectamente posible porque cualquier clase que extiende justamente
+                    </p>
+                    <p>puede ser utilizada como una instancia de su clase. </p>
+                    <p>Padre. Para que esto suceda funcione bien, se tienen que dar un par de condiciones. </p>
+                    <p>En principio, que el cliente en este caso en este caso la función EFE solamente </p>
+                    <p>debe utilizar me dos que estén presentes en la clase padre. </p>
+                    <p>Y por el otro lado, la clase hija. O sea, bueno, en este caso, La clase hijo </p>
+                    <p>Si se ahora darse el caso de que sobre escribe algún método de la clase padre debe </p>
+                    <p>hacerlo de un modo que no altere el comportamiento Concretamente. </p>
+                    <p>Lo que no puede suceder es que La clase la clase hija, por ejemplo, sobre escribe el método para
+                    </p>
+                    <p>dejar el código completamente vacío. Esa es una violación al principio, otra, un tipo de
+                        violación </p>
+                    <p>es cuando la clase hija, por ejemplo, arroja una excepción diferente. </p>
+                    <p>Las excepciones que arroja su padre Esto haría que la en función EFE tenga que necesariamente
+                        conocer </p>
+                    <p>las diferencias entre el hijo y el padre para justamente poder resolver todos los casos posibles.
+                    </p>
+                    <p>Y eso realmente sería una violación. Al principio Veamos un ejemplo un poquito más concreto donde
+                    </p>
+                    <p>tenemos una clase vehículo que tiene un método avanzar y aquí nos dice que avanzar </p>
+                    <p>puede aceptar cualquier velocidad que está en el rango entre el cero y dos cientos. </p>
+                    <p>Si esta fuera cerrando, arrojara una excepción. Luego tenemos una clase scooter, que es como una
+                    </p>
+                    <p>especialización del vehículo. Y aquí vemos que la clase scooter sobre escribe el método avanzar,
+                        pero </p>
+                    <p>impone una restricción un poco más estricta donde dice cualquier velocidad que sea más </p>
+                    <p>horas cien sea queda fuera del rango. Lo que sucedera. </p>
+                    <p>Aqui es cuando tenemos justamente un método, una función cliente que recibe un vehículo, un
+                        vehículo </p>
+                    <p>que justamente debería poder hacer cualquier tipo de vehículos. </p>
+                    <p>Tanto un vehículo propiamente dicho como Unix Cútar y un parámetro que es la velocidad y llama
+                    </p>
+                    <p>al método avanzar de ese vehículo instancia mos un vehículo instancia en sus Cútar y vamos a
+                        tomar una </p>
+                    <p>velocidad justamente que está en el medio, en el entre el rango que hacer del scooter y el
+                        vehículo </p>
+                    <p>O sea, ciento cincuenta cuando hagamos el La llamada a avanzar vehículo con un </p>
+                    <p>vehículo B, o sea, un vehículo como tal, no vamos a tener problemas porque ciento cincuenta es
+                    </p>
+                    <p>una velocidad aceptable. Sin embargo, cuando lo hagamos sobre Scooter, vamos a recibir una
+                        excepción </p>
+                    <p>Eso entonces es una violación al principio de sustitución del disco Cuando. </p>
+                    <p>Esto sucede. La verdad es que lo que tenemos que preguntarnos es si realmente la relación de
+                        herencia </p>
+                    <p>es tal. O sea, en este caso sería discute, Es realmente un vehículo. </p>
+                    <p>O tal vez tiene que ser alguna otra cosa. No significa que las clases no deben estar relacionadas
+                        entre </p>
+                    <p>sí. Lo que hay que preguntarse y muy probablemente la respuesta sea no es si la relación que les
+                        corresponde </p>
+                    <p>es de herencia o es algún otro tipo de relación. Muy bien, entonces en esta clase aprendiste </p>
+                    <p>un poco como el Mare jerarquías de clases que se han extendido les y sostenibles </p>
+                    <p>en el tiempo. La próxima clase. Hablaremos sobre el principio de CD ación de interfaces No </p>
+                    <p>te la pierdas. </p>
+                </div>
+            </article>
+        </section>
+
+        <hr>
+
+        <section class="row">
+            <article class="col">
+                <h2>Sección 14 de 26 - Interface segregation principle</h2>
+                <div class="Resources-description">
+                    <p>El <strong>Interface Segregation Principle</strong> establece que los clientes de un programa
+                        sólo deberían conocer de éste los métodos que realmente usan.</p>
+                </div>
+                <h2>TRANSCRIPCION</h2>
+                <div class="Transcript-text">
+                    <p>En esta clase. Te voy a hablar sobre el principio de segregación de interfaces interferirse</p>
+                    <p>Creo que hizo un principo Este principio Lo que nos dice es un poco cómo estructurar nuestras
+                        interfases </p>
+                    <p>De modo que cuando una clase implementa una interfase no se le exija implementan </p>
+                    <p>métodos que no necesita o que no les son propios. </p>
+                    <p>Vamos a verlo bien. En un ejemplo, Pensemos en una Software Factory una factoría </p>
+                    <p>de Software tenemos una interfase que van a mantener todos los los empleados que vamos a modelar
+                        con </p>
+                    <p>clases que veremos a continuación, donde básicamente hay dos cosas que puede hacer un empleado de
+                        una </p>
+                    <p>Software Factory que Z codear. Escribir código sería o testear y para eso tenemos un </p>
+                    <p>método que nos dice este empleado puede codear y eventualmente que lo haga. </p>
+                    <p>Y lo mismo para testear. Entonces vamos a ver cómo es. </p>
+                    <p>Simplemente haría una clase programador programa Obviamente implementa Word Cat porque </p>
+                    <p>tiene un empleado. Nuestra Software Factory va a tener que implementar esta interfase El </p>
+                    <p>método que Encode. Sí, por supuesto. Un programador. </p>
+                    <p>Esperamos que sepa escribir código, así que va y vuelve a su bueno cuando le digamos que Code,
+                        pues </p>
+                    <p>el muchacho va a meter las manos en teclado y va a empezar a escribir código Cuando </p>
+                    <p>le digamos que haga Testing, Pues va a testear en su propio ordenador en su local </p>
+                    <p>Home. Pero tenemos entonces otro tipo de empleados que son los textos que como son empleados,
+                        también </p>
+                    <p>van a implementar la interfase Word cavado. Vamos a suponer que en para nuestro ejemplo, los
+                        testers </p>
+                    <p>solo saben testear, no saben codear, con lo cual quien con no es falso. </p>
+                    <p>Cuando le pidamos que Code a un tester va a decir no sonó CD Code har. </p>
+                    <p>Lo lamento, pero cuando le pidamos que te esté efectivamente, va a testear sea en el servidor de
+                        textil </p>
+                    <p>Y aquí tenemos por último una clase, que es lo que sería el manejo del proyecto. </p>
+                    <p>Lo que va a hacer es simplemente procesar el código recibiendo gustan de instancias </p>
+                    <p>de Word Cat, o sea, de empleados cualquiera. Y a cada empleado le a preguntar puedes </p>
+                    <p>confiar en todo caso en este caso. Adelante y Code Add ahora vamos a ver un poco. </p>
+                    <p>Que es lo que lo que está mal en todo esto? Lo que sucede aquí para empezar, es que tenemos un
+                    </p>
+                    <p>tester que implementó una función método call que siempre va arrojar una excepción. </p>
+                    <p>La verdad que esto suena como un poco raro decir para qué necesitamos un método que siempre </p>
+                    <p>arrojen excepción y donde Feliciano no aporta nada Lo mismo sucede con esto tenemos una función
+                        que </p>
+                    <p>siempre vuelve falso. También esto da un poco la impresión de que esa nos está como qué? </p>
+                    <p>Sobrando las las funciones del código para el tester y por el otro lado, en el programador
+                        tenemos </p>
+                    <p>un problema similar, una función que en con que siempre vuelve tu, con lo cual de vuelta, Si ya
+                        sabemos </p>
+                    <p>que es una instancia. El programador tiene poco sentido preguntarle si sabe cisa de Code ar una
+                    </p>
+                    <p>forma mejor de desarrollar y estados sea rehén definitiva de resolver. </p>
+                    <p>Este problema es tomar las la interfase grande que teníamos cientos fase Word Cat y </p>
+                    <p>partirla en dos pedazos separados, una interfaz, el caudal y una interface te estado. </p>
+                    <p>Lo importante aquí es recordar que una clase puede implementar tantas interfases como sea
+                        necesario </p>
+                    <p>Esta es la clave de este principio De este modo podemos decir que un programador puede </p>
+                    <p>Code arquetipo de testear porque justamente implementa la interfase con él y la interface te
+                        estado </p>
+                    <p>En cambio. Un tester solamente puede testear, con lo cual solo implementa la interface. </p>
+                    <p>Te estaba el de este modo no le estamos imponiendo la clase. </p>
+                    <p>Te Esther que implemente metodos que no le pertenecen para nada. </p>
+                    <p>Y de esta forma, pues así el código nos queda un poco más sencillo de ver. </p>
+                    <p>Y sobre todo, lo más interesante es cómo va a quedar la otra clase, que es el próximo Managment
+                        sea </p>
+                    <p>el código queda mucho más sencillo para empezar, porque puede hablarle a home, que puede recibir
+                        un </p>
+                    <p>miembro específicamente del tipo necesario. Es un colgado. </p>
+                    <p>No necesitas a preguntar si el miembro este puede codear. </p>
+                    <p>O sea, es obvio que porque potencia interfase Edit Code Abel puede codear. </p>
+                    <p>Entonces, de esta manera el código nos quedan mucho más limpio y más sencillo, más mantenible.
+                    </p>
+                    <p>En esta clase aprendiste una elección muy importante. </p>
+                    <p>Mantén tus interface finas y usas en composición. </p>
+                    <p>Cuando sea necesario, En la próxima clase. Vamos a estudiar el principio de inversión de
+                        dependencias </p>
+                    <p>y con eso vamos a finalizar el estudio de dos principios sólidos. </p>
+                    <p>Nos vemos así </p>
+                </div>
+            </article>
+        </section>
+
+        <hr>
+
+        <section class="row">
+            <article class="col">
+                <h2>Sección 15 de 26 - Dependency inversion principle</h2>
+                <div class="Resources-description">
+                    <p><strong>Dependency Inversion Principle</strong> detalla que los módulos de alto nivel no deben
+                        depender de los de bajo nivel, ambos deben depender de abstracciones.</p>
+                    <p>Las abstracciones no deben depender de los detalles, los detalles deben depender de las
+                        <strong>abstracciones</strong>.
+                    </p>
+                </div>
+                <h2>TRANSCRIPCION</h2>
+                <div class="Transcript-text">
+                    <p>En la clase de hoy te voy a hablar sobre el principio de inversión de tendencia o dependencia</p>
+                    <p>Inversión principo Este principio no se a sudar a definir como se vinculan las diferentes clases
+                        que </p>
+                    <p>tienen que dar de servicio a otras Con concepto importante que se deduce de este principio es que
+                        existen </p>
+                    <p>clases de alto nivel y clases de bajo nivel. En general, las clases de alto nivel son aquellas
+                        que </p>
+                    <p>tienen que ver con la lógica de negocio, con la aplicación específica de estas desarrollando las
+                    </p>
+                    <p>clases de bajo nivel. Son aquellas que simplemente están ahí para ayudar a que las clases de alto
+                        nivel </p>
+                    <p>puedan llevar adelante su cometido. Y justamente la idea de este principio es ver cómo se
+                        vinculan </p>
+                    <p>estas clases, de modo que la dependencia no sea realmente muy fuerte, sino que sea </p>
+                    <p>un poquito más desacoplada. Un ejemplo que me gusta utilizar para explicar este principio es un
+                    </p>
+                    <p>sistema de notificaciones. Piensa en un sistema donde al usuario hay que enviarle mensajes por
+                        diferentes </p>
+                    <p>canales, como pueden ser y mail puede ser Bachar puede ser SMS o cualquier otro tipo de canal.
+                    </p>
+                    <p>La idea es que siempre habrá Un mensaje que necesitamos que se, independientemente de cuál sea el
+                        canal </p>
+                    <p>que basamos a utilizar. Entonces una forma implementar esto podría ser tener una </p>
+                    <p>clase como esta, que es un notificador, que es una clase que justamente tiene </p>
+                    <p>la lógica del negocio, lo que nosotros queremos que que suceda y se sirve de estas </p>
+                    <p>clases como ser un Vim, encender un SMS Sender y un Wax Add Sender, que son las que efectivamente
+                    </p>
+                    <p>harán el envío. Podríamos tener entonces un método, no Tiff, hay que recibe un usuario, un
+                        indicador </p>
+                    <p>de la severidad del mensaje que queremos enviar y por último, obviamente, el propio mensaje. </p>
+                    <p>Y luego ahora el envío por el canal que corresponda, según la regla que establece el </p>
+                    <p>negocio en nuestro ejemplo sería todos los mensajes si o si van a salir a través de un e-mail.
+                    </p>
+                    <p>Solamente los mensajes de severidad más hora uno se enviarán también vía Watts AP que </p>
+                    <p>Los mensajes de severidad más porque dos También se enviarán vía SMS. </p>
+                    <p>Esto es un ejemplo simple de una regla que puede ser el sistema que estamos desarrollando. </p>
+                    <p>Lo importante es ver cómo se utilizan las clases auxiliares dentro del notificador Ahora </p>
+                    <p>Qué problema tenemos con esto? Pues el problema está en que aquí estamos haciendo una dependencia
+                        dura </p>
+                    <p>digamos de el notificador con sus clases auxiliares, porque porque estamos creando los objetos a
+                    </p>
+                    <p>dentro del propio constructor de la relación a TIFF ayer, qué sucederá el día que, por ejemplo,
+                        decíamos </p>
+                    <p>que hay una nueva clase, una nueva implementación mucho mejor para hacer el envío de los y mais
+                        no </p>
+                    <p>nos quedará otra solución que venir aquí y tocar el constructor de la clase. </p>
+                    <p>No tifa ayer para implementar esa nueva vale para poner en práctica esa nueva implementación del
+                        Y me </p>
+                    <p>dicen DIR La verdad es que no es una muy buena idea eso porque estaremos impactando sobre una
+                        clase </p>
+                    <p>que se está funcionando, que anda bien. No tenía ninguna razón realmente para ser modificada como
+                    </p>
+                    <p>corregimos esto simplemente haciendo un pequeño cambio en el constructor de El notificador, donde
+                        en </p>
+                    <p>lugar de ceder este notificador, el que se encarga de crear los objetos, simplemente los recibe
+                        como </p>
+                    <p>parámetros y Los tomas y los guarda para su uso posterior en el método no Tiffany Un </p>
+                    <p>punto importante este y me encender ese meses en igualdad Sender. </p>
+                    <p>No deben ser clases, sino más bien interfases De este modo podemos implementar </p>
+                    <p>cualquier Podemos tomar cualquier clase que implemente estas interfases. </p>
+                    <p>Y simplemente con eso, el Noti Fair sea pierde completamente la noción de específicamente de
+                        contra </p>
+                    <p>qué servicios están trabajando De ese modo. Simplemente cuando cambie el Vim, encender que
+                        queramos </p>
+                    <p>usar simplemente sería cuestión de cambiar la implementación y crear un objeto de la nueva clase.
+                    </p>
+                    <p>Pero que respete el interfase y me encender. Y el notificador seguirá funcionando como </p>
+                    <p>si tal cosa. Con esto concluyo nuestros recorrido por los principios sólidos. </p>
+                    <p>Ahora Satis los conocimientos para desarrollar sistemas orientados objetos mantenible </p>
+                    <p>robustos. Y es hora de demostrarlo. Y para eso te tengo cinco retos. </p>
+                    <p>En cada uno de los archivos que En acompañan esta clase encontrarás una violación alguno de los
+                        principios </p>
+                    <p>brutalidades, detectarla y proponer las mejoras. </p>
+                    <p>Así que dejan tus comentarios, las mejoras que propones y nos vemos en la proxima clase para
+                        hablar </p>
+                    <p>sobre patrones de diseño. </p>
+                </div>
+            </article>
+        </section>
+
+        <hr>
+
+        <section class="row">
+            <article class="col">
+                <h2>Sección 16 de 26 - Patrones de Diseño: Singleton</h2>
+                <div class="Resources-description">
+                    <p>Los patrones de diseño son soluciones de arquitectura de software aplicables a diferentes
+                        problemas.</p>
+                    <p>El patrón <strong>Singleton</strong> permite restringir la creación de objetos pertenecientes a
+                        una clase o al valor de un tipo a un único objeto.</p>
+                </div>
+                <h2>TRANSCRIPCION</h2>
+                <div class="Transcript-text">
+                    <p>En esta clase, Te voy a hablar sobre patrones de disenio.</p>
+                    <p>Los patrones de diseños son soluciones conceptuales que se pueden aplicar a la hora de pensar
+                    </p>
+                    <p>en cómo diseñar tus clases Básicamente. Existen tres tipos de patrones los de creación que nos
+                        hablan </p>
+                    <p>de cómo se crean nuevas instancias de los objetos, los estructurales que nos dicen, como digamos,
+                    </p>
+                    <p>estructurar nuestras clases. Y por último, en los de comportamientos que nos dicen cómo deben
+                        comportarse </p>
+                    <p>nuestros objetos Es importante entender que esto no se trata de código, no es para copiar </p>
+                    <p>y pegar. Se trata de Ayudas para como pensar tu aplicación. </p>
+                    <p>Y otro punto muy importante que hay que tener en cuenta es que estos patrones no son aplicables
+                        siempre </p>
+                    <p>Son simplemente ideas que te pueden ayudar a pensar para que no tengas que arrancar </p>
+                    <p>de la hoja en blanco. Pero esto es importante Hay un riesgo asociado. </p>
+                    <p>Esto que es el que se conoce como Pater ni This que mucha gente cuando conoce esto empieza </p>
+                    <p>a tratar de aplicar los patrones en todos los problemas. </p>
+                    <p>Y esto es de verdad que puede traerte mas problemas que soluciones. </p>
+                    <p>Asi que cuidado! Comencemos con uno de los más conocidos el patrón single Touch. </p>
+                    <p>Este patrón se puede pensar tanto como un patrón de creación como de comportamiento le </p>
+                    <p>lleves tener una clase que solo tenga una instancia a lo largo de toda nuestra aplicación. </p>
+                    <p>Y esto es importante que sea así, porque si hubiese más de distancia, Esto generaría problemas.
+                    </p>
+                    <p>Usualmente este patrón se utiliza para, por ejemplo, optimizar recursos. </p>
+                    <p>Vamos a ver un poco cómo se puede implementar? Aquí tenemos la clase Singleton, que lo </p>
+                    <p>primero que notamos es que tiene una propiedad que es de tipo Static. </p>
+                    <p>Esto quiere decir que la propiedad de instancia no va a ser una propiedad de la instancia de
+                        cinco Helton </p>
+                    <p>sino de toda la clase Esto es lo primero que nos indica que no vamos a tener posibilidad de tener
+                        más </p>
+                    <p>de una instancia, porque justamente esta variable va a ser compartida por toda la por </p>
+                    <p>la clase Lo. Segundo que tenemos que observar es que el constructor de la clase es </p>
+                    <p>de tipo privado. Es decir, solamente va a poder ser invocado por la propia clase cinco gramos es
+                    </p>
+                    <p>total. Este genere un poco la pregunta de cómo se va a generar esa que esa instancia </p>
+                    <p>Si el constructor es privado quien va a generar la? </p>
+                    <p>Pues justamente para eso tenemos este método, que es que Ting Sans, que también es un método
+                        estático </p>
+                    <p>O sea, que va por ser invocado directamente a través de la clase sin generar ninguna instancia.
+                    </p>
+                    <p>Y la idea del método que tienes tan es verificar si la instancia no ha sido creada todavía. </p>
+                    <p>Es el responsable de justamente invocar el constructor que va a poder hacerlo a </p>
+                    <p>pesar de ser criado, porque justamente es un método de la propia clases en el donde y </p>
+                    <p>por el otro lado, si la instancia sea esta creada, lo único que va a ser es retornar </p>
+                    <p>la, de modo que cada vez que uno quiera a obtener la instancia del single Touch va </p>
+                    <p>a tener que llamar a la función de Pinsans De este modo nos garantizamos de que no </p>
+                    <p>haya más de una instancia. Un ejemplo de aplicación del patrón Singleton son los los errores de
+                        las </p>
+                    <p>aplicaciones. En cualquier aplicación se producen a veces situaciones inesperadas y </p>
+                    <p>es muy importante tener esa información a la hora de corregir errores y Pues. </p>
+                    <p>Corregir también los problemas que se hayan podido suceder. </p>
+                    <p>Entonces no tienen general mucho sentido tener muchos objetos diferentes donde cada uno haga </p>
+                    <p>Guardé dos errores en algún lugar diferente. Más vale tener unos suelo que centralice esta
+                        función </p>
+                    <p>Y en este caso es un buen momento para aplicar el patrón Singleton. </p>
+                    <p>Bien, En esta clase. Aprendiste que son los patrones de diseño. </p>
+                    <p>Y cómo te pueden ayudar a desarrollar aplicaciones en la clase que viene. </p>
+                    <p>Vamos a ver el segundo. Los patrones. El patrón Factory. </p>
+                    <p>No deje de verla. </p>
+                </div>
+            </article>
+        </section>
+
+        <hr>
+
+        <section class="row">
+            <article class="col">
+                <h2>Sección 17 de 26 - Factory</h2>
+                <div class="Resources-description">
+                    <p>El patron <strong>Factory</strong> es creacional, se utiliza para ayudar a la creación de nuevas
+                        instancias de objetos.</p>
+                </div>
+                <h2>TRANSCRIPCION</h2>
+                <div class="Transcript-text">
+                    <p>En esta clase, conocerás el patrón Factory. Se trata de un patrón creación al.</p>
+                    <p>Es decir, se utiliza para ayudar a la creación de nuevas instancias de objetos. </p>
+                    <p>El patrón se utiliza usualmente cuando la creación de un objeto justamente es un proceso muy
+                        complejo </p>
+                    <p>por ejemplo, que en tales requieren muchos parámetros o la propia creación del objeto requiere
+                        hacer </p>
+                    <p>operaciones complejas, ciertos cálculos difíciles o alguna cuestión así Veamos </p>
+                    <p>un ejemplo de cómo simplement haría. Aquí tenemos una clase automóvil que el constructor recibe
+                        la </p>
+                    <p>marca y el modelo y simplemente con eso crea el objeto Una factoring que podríamos utilizar para
+                    </p>
+                    <p>esta clase. Sería algo como esto un automóvil Factory que lo que tiene es un método de creación
+                        que </p>
+                    <p>recibe solamente un parámetro. Si de este modo sea, hemos bajado la complejidad de la creación
+                        del </p>
+                    <p>automóvil de dos parámetros a uno y en este caso particular, es muy probable que todos </p>
+                    <p>los autos que salgan, por ejemplo, en este año se ven el modelo dos mil diecinueve. </p>
+                    <p>Cuando puede sería un poquito redundante pasarle el el parámetro dos mil diecinueve a </p>
+                    <p>cada instancia de creación del auto. Eso es lo que un poco aporta esta esta Factory es </p>
+                    <p>que hay un parámetro que va de uno implícito la forma de utilizar lo podríamos ver ese </p>
+                    <p>están sí, De esta manera. Estamos creando un objeto pretende sin utilizarlas factor y tenemos
+                    </p>
+                    <p>que pasar le el parámetro dos mil diecinueve. De esta forma, en cambio, estamos utilizando </p>
+                    <p>la Factory y simplemente decimos quiero generar un nuevo auto que internamente va a tener el
+                        parámetro </p>
+                    <p>dos mil diecinueve en su creación. De este modo. </p>
+                    <p>Entonces lo que estamos logrando es primero un código un poco más abstracto, más reutilizable y
+                    </p>
+                    <p>sobre todo, pueden pasaron dos cosas que es, primero podría ser a cambiar el modo en que se </p>
+                    <p>construyese un automóvil y justamente al utilizar la factoría hizo me desentiendo de de ese
+                        cambio sea </p>
+                    <p>estoy ganando un poco más de lógica que no tengo que implementar su mismo. </p>
+                    <p>Y lo mismo podría pasar si de repente cambia la propia clase automóvil, cambio por otro tipo de
+                        tales </p>
+                    <p>una nueva clase que extiende automóvil. Tampoco tengo que necesariamente saberlo. </p>
+                    <p>Esto quiere decir que el código que se escribir no tengo que tocarlo. </p>
+                    <p>A diferencia de siso muy hiciera esto de instancia hr explícitamente la clase no </p>
+                    <p>me quedaría otra opción que el remplazar cada instancia donde creó el de objeto Automóvil por
+                    </p>
+                    <p>La Nueva implementación. De modo que en esta clase aprendiste como un trabajar cuando la creación
+                        de </p>
+                    <p>objetos es un proceso complejo. Utilizando el patrón factoria en la próxima clase vamos </p>
+                    <p>a aprender sobre el patrón. Comandos, te veo así. </p>
+                </div>
+            </article>
+        </section>
+
+        <hr>
+
+        <section class="row">
+            <article class="col">
+                <h2>Sección 18 de 26 - command</h2>
+                <div class="Resources-description">
+                    <p>El patrón <strong>Command</strong> permite solicitar una operación a un objeto sin conocer
+                        realmente el contenido de esta operación, ni el receptor real de la misma. Para ello se
+                        encapsula la petición como un objeto, con lo que además facilita la parametrización de los
+                        métodos.</p>
+                </div>
+                <h2>TRANSCRIPCION</h2>
+                <div class="Transcript-text">
+                    <p>En esta clase, Te voy a hablar sobre el patrón comandos.</p>
+                    <p>Se trata de un patrón de comportamiento El patrón comandos se utiliza usualmente cuando </p>
+                    <p>existen una operación especialmente compleja que debe ser realizada desde diferentes puntos </p>
+                    <p>de entrada. Típicamente. Esto sucede cuando, por ejemplo, desarrollas una aplicación web y </p>
+                    <p>necesitas ejecutar la misma operación tanto desde la web, o sea, para responder a una consulta a
+                        un </p>
+                    <p>visitante como a través de, por ejemplo, en la línea de comandos. </p>
+                    <p>Entonces ahí tal vez conviene agrupar esta funcionalidad en una clase que sea capaz de llevar
+                    </p>
+                    <p>adelante esta tarea. Usualmente el patrón simplemente de esta manera tenemos una interfase, que
+                        es </p>
+                    <p>cómo han de interfaces y una simple función, que es ese Kioto. </p>
+                    <p>Qué es lo que va a ser el ex equipo? Bueno, pues obviamente dependerá del comando específico.
+                    </p>
+                    <p>Pero lo interesante de tener esto así es que unifica todas las interfaces de cualquier comando.
+                    </p>
+                    <p>Esto permite, por ejemplo, aplicar muy sencillamente el principio Open Touch, donde se puede
+                        hacer </p>
+                    <p>por ejemplo, un recorrer un arreglo de comandos y por cada uno simplemente ejecutar. </p>
+                    <p>Exe GitHub exigió, exigió y el comandos era el responsable de hacer su tarea Un </p>
+                    <p>punto importante también es que muchas veces el ex equipo lo que hará es vallar CD, alguna otra
+                        clase </p>
+                    <p>específica para llevar adelante su tarea. En ese caso, decimos que el comando se convierte en un
+                    </p>
+                    <p>rapero, un envoltorio. Si curso objetivo solamente es el de unificar la interface, que bueno </p>
+                    <p>Pues tampoco es realmente despreciable. En esta clase aprendiste cómo estructurar tu código Días
+                        son </p>
+                    <p>los más reutilizable y con eso terminamos nuestro estudios sobre los patrones de diseño. </p>
+                    <p>Ahora, si te toca el reto Se trata de diseñar un pequeño programa que apliquen </p>
+                    <p>los patrones que has aprendido. Puedes pensar en algún programa, como por ejemplo, que manipuló
+                        un </p>
+                    <p>archivo o que tal vez aún lo hindú Usuarios, usa tu imaginación Lo importante. </p>
+                    <p>Deja el código en tus comentarios y no te vayas muy lejos este curso que lo que viene a
+                        continuación </p>
+                    <p>es muy, muy interesante. Se trata de cómo testear tus aplicaciones en forma automatizada. </p>
+                    <p>Nos vemos </p>
+                </div>
+            </article>
+        </section>
+
+        <hr>
+
+        <section class="row">
+            <article class="col">
+                <h2>Sección 19 de 26 - Introducion al testing automatizado</h2>
+                <div class="Resources-description">
+                    <p>Existen dos tipos de testing:</p>
+                    <ul>
+                        <li><strong>Unit Testing:</strong> Evaluamos el funcionamiento de los componentes
+                            individualmente.</li>
+                        <li><strong>Integration Testing:</strong> Validar la interacción entre los componentes y el
+                            sistema completo.</li>
+                    </ul>
+                </div>
+
+                <h2>TRANSCRIPCION</h2>
+                <div class="Transcript-text">
+                    <p>una parte es súper importante del desarrollo del software.</p>
+                    <p>Es la corrección de los errores que siempre van a estar ahí. </p>
+                    <p>Es imposible evitarlo De Lo que se trata es de esta tarde. </p>
+                    <p>Encontrarlos y corregirlos lo más pronto posible. </p>
+                    <p>Existen muchas formas de encontrar estos problemas, pero hay una que nunca puede dejarse de lado
+                        y </p>
+                    <p>son las pruebas. Estas pruebas pueden ejecutarse manualmente, es decir, poner a personas, aprobar
+                    </p>
+                    <p>el sofá y detectar los errores A. Esto se le llama el Testing Manuel. </p>
+                    <p>Esto tiene algunos inconvenientes. En principio es muy costoso. </p>
+                    <p>Es lento y sobre todo, es poco confiable. Otra técnica que se utiliza bastante es el </p>
+                    <p>Testing automatizado. De lo que se trata aquí es de escribir programas que sean capaces de probar
+                        los </p>
+                    <p>programas y reportar los pasos. Esto es justamente mucho más rápido. </p>
+                    <p>Es menos costoso y es más confiable. Desafortunadamente, aún existen cosas que no </p>
+                    <p>se pueden testear en forma automatizada. Por ejemplo, la aplicación es cómoda para usar. </p>
+                    <p>Es linda la pantalla. Este tipo de cuestiones necesitan todavía el destí manual. </p>
+                    <p>Para todo lo demás. Existe el Testing automatizado Existen muchos tipos de Testino automatizado.
+                    </p>
+                    <p>Los principales son los test unitarios y los test de integración Cuando leemos de Unitario </p>
+                    <p>y Unit Sting. Lo que estamos haciendo es tomar cada unidad de Software por separado y </p>
+                    <p>analizarla fuera de su contexto para validar que hace lo que tiene que hacer. </p>
+                    <p>Esto fomenta el Refah CTO en primero que eso quiere decir el volver a escribir el código de </p>
+                    <p>una manera mejor, más concisa. Facilitan integración con otras piezas de Software. </p>
+                    <p>Y por último, a sudar a dejar el código documentado porque queda muy claro que es lo que hace el
+                        sofá </p>
+                    <p>para poder escribir Johnny Text o bajen. Para poder practicar el juny Testing necesitamos </p>
+                    <p>una herramienta que nos permita. Escriben los test por un lado y por otro lado, ejecutarlos y
+                    </p>
+                    <p>mostrar los dos resultados En el caso particular le php. </p>
+                    <p>Lo que vamos a utilizar es php y un hito Para los demás lenguajes. </p>
+                    <p>Existen paquetes similares, así que no vas a tener problemas Un Text hecho con pecho Pedí Unix
+                        severa </p>
+                    <p>más o menos. De esta manera, lo primero que tenemos que notar es que la clase Stack </p>
+                    <p>Text extiende de la clase test Caisse esta clase test, que es la que nos hará la justamente </p>
+                    <p>en la base de todas las herramientas que vamos a necesitar para escribir y eventualmente ejecutar
+                        nuestro </p>
+                    <p>texto Después no tenemos que hay un método curso nombre comienza con la palabra Text. </p>
+                    <p>Esto no es caprichoso, no es arbitrario, sino que es mandatorio. </p>
+                    <p>Debe ser así para que en la herramienta PHP y Unix entienda que el método Este es </p>
+                    <p>efectivamente un texto. Lo que sí es arbitrario vemos, lo decido son es el nombre que </p>
+                    <p>va a llevar este este texto Luego podemos notar que hay varias amas métodos que </p>
+                    <p>comienzan con la palabra. Acertó esta palabra, lo que significa esa aseveración </p>
+                    <p>Lo que estamos haciendo aquí es justamente dejar explícitas cuáles son nuestras expectativas
+                        respecto </p>
+                    <p>de lo que el software que estamos destinando debe realizar Todos aquí estamos diciendo, por
+                        ejemplo </p>
+                    <p>que será lo mismo este cero que el Cat, aun de lo que haya dentro del TAC. </p>
+                    <p>Este es un caso muy particular donde se está testando una pila. </p>
+                    <p>Pero como podemos ver ahí? Bueno, hay muchos tipos de aseveraciones diferentes. </p>
+                    <p>Cuando ejecutemos este texto, lo que veremos será los resultados de cada una de estas
+                        aseveraciones </p>
+                    <p>El BHP y Unix ejecutará todos los tests. Irá este salió bien este salió mal y cuando veamos uno
+                        que </p>
+                    <p>salió mal será un indicador de que hay algo que debemos corregir para lograr que todos los Text
+                        sean </p>
+                    <p>exitosos El segundo tipo de tez que vamos a charlar Es sobre el de integración. </p>
+                    <p>De lo que se trata aquí es un poco del complemento a los texto unitarios. </p>
+                    <p>En los texto unitarios veíamos que la idea era tomar cada una de las clases o de las elementos
+                        por </p>
+                    <p>separado y validar su propio funcionamiento El desde integración, lo que hace es justamente
+                        validar </p>
+                    <p>sa no tanto los componentes individuales, sino la interacción entre esos, es decir, como como
+                    </p>
+                    <p>se comporta el sistema completo y muchas veces surge la pregunta de vale la pena hacer </p>
+                    <p>test de integración teniendo buenos text unitarios. </p>
+                    <p>Y la respuesta es que sí. Veamos un ejemplo de por qué Aquí podemos ver como cada </p>
+                    <p>una unidad por separado puede funcionar perfectamente, pero es muy claro que el </p>
+                    <p>sistema en su conjunto no valorar su objetivo de HB Jon. </p>
+                    <p>Y puede utilizarse también para realizar los test de integración y el test se verá un poquito
+                        diferente </p>
+                    <p>Pero esta es un ejemplo de cómo podría haberse Aquí lo que estamos haciendo es testear </p>
+                    <p>una aplicación web, con lo cual lo que eso voy a hacer es realizar una petición hacia </p>
+                    <p>la URL del del sitio que quiero testear. Y lo que voy a hacer es validar que la respuesta que
+                        obtuve </p>
+                    <p>sea un código dos cientos. Es decir, que todas ha salido correctamente importante </p>
+                    <p>de notar aquí como Sólo estoy diciendo nada respecto de como se hizo para llegar a ese
+                        doscientos. </p>
+                    <p>Eso ya no es un problema al momento de hacer el test de integración. </p>
+                    <p>Lo que estoy viendo justamente es que la Visto desde afuera. </p>
+                    <p>El sistema se comporte como se espera que se comporte. </p>
+                    <p>Otra verificación que podría haber hecho eran sobre el HTML que recibo como respuesta. </p>
+                    <p>Ahí podría preguntar si el don contiene algún elemento, por ejemplo, un formulario, algún botón o
+                    </p>
+                    <p>lo que yo quisiera Si el caso que estuviera testando fuera un happy Ruiz, por ejemplo, lo que
+                        haría </p>
+                    <p>sería verificar qué es lo que contiene el seis son. </p>
+                    <p>Se puede hacer cualquier tipo de verificación utilizando esta Finish las herramientas En </p>
+                    <p>esta clase has aprendido una muy buena práctica de programación, que es el desarrollo de pruebas
+                        automatizadas </p>
+                    <p>durante la próxima clase. Vamos a hablar sobre una metodología conocida como ti. </p>
+                    <p>Viví de destruyen Development. Y para eso necesito que armes un entorno de trabajo en el que
+                        puedas </p>
+                    <p>desarrollar las pruebas. Te dejado una unas instrucciones en una lectura para el armado de un
+                        entorno </p>
+                    <p>de pruebas en PHP. Así que, por favor Armando enter, no. </p>
+                    <p>Y nos veremos en la próxima clase para hablar sobre desarrollo guiado por pruebas. </p>
+                </div>
+            </article>
+        </section>
+
+        <hr>
+
+        <section class="row">
+            <article class="col">
+                <h2>Sección 20 de 26 - Armado del entorno de pruebas en PHP</h2>
+                <div class="MaterialLecture-text">
+                    <p>Para poder ejecutar el código que veremos en las próximas clases deberás contar con un entorno
+                        donde poder ejecutar PHPUnit (El framework de pruebas unitarias más utilizado con PHP).</p>
+                    <h3>1. Descargar el proyecto</h3>
+                    <p><strong>El primer paso</strong> es clonar el repositorio <a
+                            href="https://github.com/mchojrin/platzi-tdd" target="_blank"
+                            rel="noopener">https://github.com/mchojrin/platzi-tdd</a></p>
+                    <p>Si no tienes aún instalado el cliente de git puedes descargarlo de <a
+                            href="https://git-scm.com/downloads" target="_blank"
+                            rel="noopener">https://git-scm.com/downloads</a> (Selecciona la descarga que corresponda con
+                        tu sistema operativo).</p>
+                    <p>Si utilizas Windows es muy recomendable descargar GitBash (Una consola tipo POSIX que incluye
+                        todas las herramientas que necesitarás para interactuar cómodamente con el sistema de control de
+                        versiones)</p>
+                    <figure><img
+                            src="https://static.platzi.com/media/user_upload/1-482c2eee-7543-4c7c-b6e6-18981a670ff0.jpg"
+                            alt="1.png"></figure>
+                    <p>Una vez tengas git instalado, abre un terminal y clona el repositorio con el comando
+                        <code>git clone git@github.com:mchojrin/platzi-tdd.git</code>
+                    </p>
+                    <figure><img
+                            src="https://static.platzi.com/media/user_upload/2-0d7a368d-b61d-4e3b-beaa-b71ac2aedcf5.jpg"
+                            alt="2.png"></figure>
+                    <h3>2. Instalar PHP</h3>
+                    <p>Si estás en un entorno Linux o Mac probablemente ya tendrás <strong>PHP</strong> instalado, con
+                        lo cual puedes saltar este paso.</p>
+                    <p>Si estás en Windows deberás descargar PHP de <a href="https://windows.php.net/download#php-7.3"
+                            target="_blank" rel="noopener">aquí</a> y probablemente también tengas que instalar el
+                        Runtime de Visual C++ que puedes descargar de <a
+                            href="https://www.microsoft.com/es-ar/download/details.aspx?id=48145" target="_blank"
+                            rel="noopener">aquí</a>.</p>
+                    <p>Para comprobar que la instalación haya sido exitosa debes abrir una terminal y ejecutar el
+                        comando php -v.</p>
+                    <p>Deberías ver algo como:</p>
+                    <figure><img
+                            src="https://static.platzi.com/media/user_upload/3-c1dfdd47-ff32-4e80-abaa-087c798114fe.jpg"
+                            alt="3.png"></figure>
+                    <h3>3. Instalar Composer</h3>
+                    <p>Una vez instalado <strong>PHP</strong> el siguiente paso es instalar <em>composer</em>, un
+                        manejador de dependencias para php (Puedes leer más de qué se trata <a
+                            href="https://academy.leewayweb.com/que-es-composer/" target="_blank"
+                            rel="noopener">aquí</a>).</p>
+                    <p>La forma más simple de instalar composer es hacerlo a través del propio php siguiendo las
+                        instrucciones presentes <a href="https://getcomposer.org/download/" target="_blank"
+                            rel="noopener">aquí</a>.</p>
+                    <p>Si utilizas Windows puedes usar <a href="https://getcomposer.org/Composer-Setup.exe"
+                            target="_blank" rel="noopener">este </a>instalador.</p>
+                    <h3>4. Instalar PHPUnit</h3>
+                    <p>PHPUnit es una librería estándar para la ejecución de pruebas unitarias de PHP.</p>
+                    <p>En general puedes descargarlo de <a href="https://phpunit.de/getting-started/phpunit-8.html"
+                            target="_blank" rel="noopener">aquí</a>. En este caso, utilizaremos la versión de
+                        instalación por proyecto.</p>
+                    <p>PHPUnit es la dependencia principal de nuestro proyecto, si tienes instalado composer, su
+                        instalación es muy simple.</p>
+                    <p>Sólo debes abrir una terminal en el directorio donde descargaste el proyecto y ejecutar composer
+                        <code>install</code>.
+                    </p>
+                    <p>El resultado debería verse similar a:</p>
+                    <figure><img
+                            src="https://static.platzi.com/media/user_upload/4-31a582eb-aa40-4904-a371-85a6fb4afcaa.jpg"
+                            alt="4.png"></figure>
+                    <p>Para verificar la instalación ejecuta el comando <code>php vendor/phpunit/phpunit/phpunit</code>
+                    </p>
+                    <p>La salida debería verse así:</p>
+                    <figure><img
+                            src="https://static.platzi.com/media/user_upload/5-b3eacd55-b396-49f5-96d7-0e1e9254c790.jpg"
+                            alt="5.png"></figure>
+                    <h3>5. Configurar el entorno</h3>
+                    <p>Durante este curso utilizamos Visual Studio Code. Si ya dispones de otro entorno y lo conoces
+                        bien puedes utilizarlo, si no tienes preferencia te recomiendo que utilices VS Code.</p>
+                    <p>Puedes descargarlo de <a href="https://code.visualstudio.com/Download" target="_blank"
+                            rel="noopener">https://code.visualstudio.com/Download</a></p>
+                    <p>Una vez instalado abre la carpeta donde descargaste el proyecto en Visual Studio:</p>
+                    <figure><img
+                            src="https://static.platzi.com/media/user_upload/6-7a74d708-852a-4175-b81b-25aa8fc99977.jpg"
+                            alt="6.png"></figure>
+                    <p>Deberías ver algo como:</p>
+                    <figure><img
+                            src="https://static.platzi.com/media/user_upload/7-68433e65-1d39-4e62-b09c-332a851348e6.jpg"
+                            alt="7.png"></figure>
+                    <p>Escribe un primer test para verificar que todo está configurado correctamente:</p>
+                    <figure><img
+                            src="https://static.platzi.com/media/user_upload/8-e3509a62-1bbe-4e00-bd85-010032ac4b0e.jpg"
+                            alt="8.png"></figure>
+                    <p>Y para ejecutarlo, abre un terminal dentro del Visual Studio Code:</p>
+                    <figure><img
+                            src="https://static.platzi.com/media/user_upload/9-23dbfd64-01fa-40af-afe5-6514464b4704.jpg"
+                            alt="9.png"></figure>
+                    <p>Una vez en la consola escribe el comando: <code>php vendor/phpunit/phpunit/phpunit tests</code>
+                    </p>
+                    <figure><img
+                            src="https://static.platzi.com/media/user_upload/10-d9ee5d8d-dba4-4fb8-aabd-ef64eef2880c.jpg"
+                            alt="10.png"></figure>
+                    <p>Y deberás ver en la salida:</p>
+                    <figure><img
+                            src="https://static.platzi.com/media/user_upload/11-f259e7ec-8e7d-4503-9001-77551a22aeac.jpg"
+                            alt="11.png"></figure>
+                    <p>Con esto tendrás todo lo necesario para avanzar a la próxima clase.</p>
+                    <p>¡Nos vemos!</p>
+                </div>
+            </article>
+        </section>
+
+        <hr>
+
+        <section class="row">
+            <article class="col">
+                <h2>Sección 21 de 26 - Test driven development</h2>
+                <h2>TRANSCRIPCION</h2>
+                <div class="Transcript-text">
+                    <p>Hola. Te doy la bienvenida a esta clase pública del curso de buenas prácticas para la escritura
+                        del</p>
+                    <p>Código So Soy maduro hecho Crin Y lo que te voy a enseñar ahora son los principios de Text Debian
+                        Development </p>
+                    <p>Si quieres aprender más, este curso está disponible con tu suscripción a Platzi Pidió </p>
+                    <p>te estudian Development o desarrollo guiado por pruebas? </p>
+                    <p>Es una metodología que propone primero escribir las pruebas y luego escribir el Software Si </p>
+                    <p>Escuchaste bien primero las pruebas. Como se puede probar algo que no existe? </p>
+                    <p>Pues es es exactamente la idea de tí. Créeme, es un cambio de cabeza, pero vale la pena De </p>
+                    <p>lo que se trata entonces es precisamente esto de tomar una funcionalidad que queremos
+                        implementar. </p>
+                    <p>Y primero que nada pensar cómo vamos a probar? O sea, cómo vamos a determinar qué es lo que
+                        basamos </p>
+                    <p>Implementar efectivamente es correcto. Y hacer lo que esperamos que haga para eso expresamos </p>
+                    <p>especificando el texto. Luego lo ejecutamos. Vemos que fallan y escribimos el </p>
+                    <p>mínimo código necesario para pasar de rojo a verde. </p>
+                    <p>Es decir, para que el texto sea exitoso. Una vez que logramos eso, vamos a volver a en </p>
+                    <p>Examina nuestro Código en busca de mejoras, por ejemplo, eliminar la redundancia. </p>
+                    <p>A eso le llamamos Reeve actor y Vamos entonces a escribir una nueva versión del código y </p>
+                    <p>ejecutar el mismo Text que acabamos de ver que el exitoso. </p>
+                    <p>De modo que si esta nueva versión del código sigue resultando verde bueno, pues tenemos </p>
+                    <p>efectivamente una mejora en este código Cuando. Terminemos estos. </p>
+                    <p>Vamos a tomar la siguiente funcionalidad y haremos exactamente lo mismo. </p>
+                    <p>Vamos a ver un ejemplo en la práctica de cómo simplemente El ejemplo que voy a utilizar es </p>
+                    <p>una simple calculadora que ahora las operaciones básicas sumar, multiplicar, restar y dividir.
+                    </p>
+                    <p>Lo que voy a hacer entonces es bueno. Primero quiero mostrar un poco cómo está mi proyecto para
+                        que </p>
+                    <p>veas la aplicación del código organizado que veíamos antes, eh, que tengo en prisión dos carpetas
+                    </p>
+                    <p>test, que es donde voy a empezar a escribir y vender, que es donde tengo las librerías que voy a
+                        utilizar </p>
+                    <p>Yo. Aquí estoy partiendo de un proyecto, sea mínimamente armado, configurado como para poder
+                        arrancar </p>
+                    <p>con las pruebas, como te mostraba en la clase de armado del proyecto PHP para utilizar </p>
+                    <p>pruebas. Entonces lo primero que voy a hacer es crear mi archivo de Text al que le voy a llamar
+                        Cálculo </p>
+                    <p>editor Text punto php Vamos a empezar por abrir PhP. </p>
+                    <p>Luego voy a tener que incluir la librería de PHP Bionic que está por aquí. </p>
+                    <p>Cat Raymond sufren Word barra Text Keys Recuerda que esta es la clase que me va a permitir tener
+                    </p>
+                    <p>toda la base para ejecutar mis Text. Y luego voy a empezar a crear efectivamente mi </p>
+                    <p>propio texto que voy a llamar tal cubierto Hortes para en fin efectivamente, decir que este </p>
+                    <p>será un test. Y no olvides esto debemos extender la clase Text seis. </p>
+                    <p>Muy bien, entonces ahora sí voy a efectivamente escribir mi primer test. </p>
+                    <p>Voy a crear una función Publican, Que, Sesame Text Y ahora voy a por el nombre. </p>
+                    <p>Efectivamente, el test que será al o el enfrentan The Song of its parámetros. </p>
+                    <p>Este nombre tan verborragia co tiene un sentido que vamos a ver en en un momento, pero en
+                        principio </p>
+                    <p>solamente para respetar lo que veníamos hablando al comienzo del curso. </p>
+                    <p>Esto tiene que ser un nombre Nemo técnico sea tiene que ser muy claro que es lo que estamos
+                        leyendo </p>
+                    <p>Entonces lo primero que hará el serán crear el objeto que efectivamente voy a querer verificar
+                    </p>
+                    <p>Será un new cayó el editor le Push este nombre es Heute a la variable, que significa saber </p>
+                    <p>si han DIR Text. Esto es un nombre muy estándar que se utiliza que quiere decir objeto </p>
+                    <p>de pruebas. Pues bien, entonces ahora me queda escribir mi primera aseveración </p>
+                    <p>Para esto voy a utilizar un método de la clase Te es que es que solo tengo disponible porque en
+                        mi clase </p>
+                    <p>al crédito antes extiende desde eso. Entonces el método que utilizan en será hacer </p>
+                    <p>y cuáles El método hacer rico es lo que va a hacer es verificar que efectivamente, los las dos
+                        expresiones </p>
+                    <p>que voy a pasar como parámetro coinciden Entonces lo que voy a hacer es llamar a un método de
+                    </p>
+                    <p>la de la clase en calcule Vitolo del que eso sea. </p>
+                    <p>Conozco el resultado que debería obtener. Por ejemplo, voy a decir que ocho debe </p>
+                    <p>ser igual a la invocación de un método de sumar de la calculadora, pasando le como parámetros un
+                    </p>
+                    <p>cinco y un tres Si. Esto efectivamente se cumple. </p>
+                    <p>Diríamos que bueno, el texto ha ha pasado. Esta bien, es correcto que lo que se espera es que
+                        sumar </p>
+                    <p>cinco y tres de ocho. Sí, entonces, ahora que tenemos escrito el test, lo que nos nos </p>
+                    <p>que nos queda por delante es efectivamente, ejecutarlos. </p>
+                    <p>Para eso voy a abrir una terminal con Control + L Git en y aquí. </p>
+                    <p>Entonces estoy parado sobre las raíces, mi proyecto y lo que voy a tener que ejecutar es </p>
+                    <p>el comando. Efectivamente, el Binario de PHP y Unix Ese Ese archivo se va a encontrar dentro </p>
+                    <p>de la carpeta Ben Dor pecho Pellón, Init, PHP y únic y devuelta pecho Pedí Unix. </p>
+                    <p>Este es el archivo que efectivamente me va a permitir ejecutar la prueba que acabo de hacer. </p>
+                    <p>Lo que tengo que indicar es donde está el archivo que contiene esa prueba y se archivó. </p>
+                    <p>Esta en la carpeta Text Cat Edit, Editor Text. Entonces vamos a ejecutarlo. </p>
+                    <p>Muy bien, pues ahí vemos lo que estábamos esperando que sucediera, que es que el </p>
+                    <p>texto ha fallado a encontrar un error y ha pasado por una razón obvia, que es que la </p>
+                    <p>clase que el crédito no se encuentra porque no se encuentra. </p>
+                    <p>Pues sencillamente porque no existe, es imposible que se encuentra Entonces vamos a justamente
+                    </p>
+                    <p>El Siguiente paso que nos proponente de es hacer el mínimo código necesario para que este </p>
+                    <p>texto En funcione. Bien, entonces, en la raíz del proyecto, voy a crear un nuevo archivo que </p>
+                    <p>de Samara Qalqilya editor punto PH bien, como siempre empiezo abriendo PHP y aquí voy a definir
+                        la </p>
+                    <p>clase Kalki de Vitoria. Y por ahora no voy a hacer más que eso porque no voy a hacer nada más.
+                    </p>
+                    <p>Porque el único fallo que su he visto es que la clásica, el Club Editor no se encuentras. </p>
+                    <p>Entonces con esto, grabando el archivo, puedo volver a ejecutar el texto y ver qué sucede. </p>
+                    <p>Pues muy bien. Aquí me dice que de vuelta de un error cuál es el error que se está llamando? </p>
+                    <p>Un método que no está definido. Qué es el cálculo editor? </p>
+                    <p>Add como puedo hacer para son solventar esto es simplemente crear un método que Sesame al </p>
+                    <p>y que sea público para que se pueda llamar desde afuera. </p>
+                    <p>Entonces, por el momento solamente vamos a hacer esto. </p>
+                    <p>Volvamos a ejecutar el texto Nuevamente. Tenemos una Ron que dice que no es No es cierto que no
+                        coincida </p>
+                    <p>con el ocho que se estaba esperando. Estén un de donde salen de que cuando hacemos el texto </p>
+                    <p>vemos aquí que se estas en una llamada al método al pasándole un cinco y un tres. </p>
+                    <p>Y cuál es el valor de retorno? Bueno, los retorno es ninguno. </p>
+                    <p>Sí, O sea, Nul. Entonces, cómo puedo hacer para que este error desaparezca? </p>
+                    <p>Bueno, pues puede hacer una cosa muy sencilla, como decir devolver una ocho y </p>
+                    <p>Con hizo. Vamos a ver qué pasa aquí. Pues. Aquí tenemos un claro, O sea, como también no Aquí
+                    </p>
+                    <p>Tenemos un test que dice que salió, que hay, Sí, lo cual o que hay es cierto. </p>
+                    <p>Ahora qué está sucediendo? La Calculadora funciona eso tengo mis dudas. </p>
+                    <p>Vamos a ver cómo podemos hacer que pasa simplemente si le ponemos una segunda aseveración, donde
+                        vamos </p>
+                    <p>a cambiar el el objetivo para decir que, por ejemplo, decir algo como cinco es </p>
+                    <p>la suma de cinco y cero y, bueno, nos ejecutar el texto. </p>
+                    <p>Bueno, pues aquí vemos nuevamente que tenemos un un faso y dice que ocho no es igual a cinco.
+                    </p>
+                    <p>Cuál es el ocho? El resultado de La invocación de esta esta función y el cinco es </p>
+                    <p>el que se está el resultado esperado. Bueno, claramente a quizá esta pequeña trampa que hicimos
+                        para </p>
+                    <p>pasar el test no funciona más. Entonces ahora, si vamos a tener que hacer algo un poco más
+                        interesante </p>
+                    <p>de qué manera podremos saber si tenemos que volver un ocho un cinco? </p>
+                    <p>La verdad es que no tiene sentido ni siquiera pensar eso. </p>
+                    <p>Veamos que la invocación recién enviados parámetros que aquí ni siquiera los estamos recibiendo.
+                    </p>
+                    <p>Así que esa es hora de empezar. Han hacer algo un poco más serio como recibir los parámetros, eh?
+                    </p>
+                    <p>Devolver el resultado. Y aquí pues lo que vamos a hacer es devolver xa el resultado de realizar
+                    </p>
+                    <p>la operación a mas ver y volvemos a ejecutar el Text. </p>
+                    <p>Y ahora si vemos que se hizo un test con dos aseveraciones y todo salió bien. </p>
+                    <p>Y ahora voy a retomar un pequeño de tránsito que Push y al principio que era él, porque le puse
+                        ese </p>
+                    <p>nombre tan estrafalarios o al al texto. Y esto es poner un una pequeña herramienta muy
+                        interesante </p>
+                    <p>que tiene PCP Llorente que me permite hacer esto con una pequeña modificación a la invocación
+                        agregándole </p>
+                    <p>este este modificador Mira como sale el resultado y aquí me lo muestra en una forma mucho más
+                        legible </p>
+                    <p>y casi que queda documentado una propiedad de cálculo editor que dice a Billy tan de San Finish
+                    </p>
+                    <p>parámetros. O sea, va a devolver la suma de sus parámetros de una forma perfectamente legible.
+                    </p>
+                    <p>Y así queda el Código mejor documentado. Habrás podido observar cómo te de nos </p>
+                    <p>empuja a escribir siempre el mínimo código necesario para lograr nuestros objetivos de </p>
+                    <p>de modo que también será metodología sumamente eficiente En esta clase aprendiste </p>
+                    <p>los principios básicos de te debe y cómo usar PHP y Unix. </p>
+                    <p>Te recomiendo que investigues sobre los paquetes específicos del lenguaje de tu preferencia que
+                        seguramente </p>
+                    <p>existen y te dejo un reto para que sigas aprendiendo sobre The de que es completar las otras
+                        operaciones </p>
+                    <p>La calculadora, es decir, restar, multiplicar y dividir. </p>
+                    <p>Esto es sólo una de las clases del curso de buenas prácticas. </p>
+                    <p>Disfruta de código. Si te interesa aprender más, has clic aquí y si quieres conocer más sobre PHP
+                    </p>
+                    <p>Add click aqui Y por supuesto, no olviden suscrita Platzi aquí </p>
+                </div>
+            </article>
+        </section>
+
+        <hr>
+
+        <section class="row">
+            <article class="col">
+                <h2>Sección 22 de 26 - Pull request</h2>
+                <div class="Resources-description">
+                    <p>Los <em>pull request</em> son pedidos de mejora a archivos de un proyecto generalmente <em>open
+                            source</em>. Sirve para que la comunidad ayude a mejorar el código que ha sido escrito por
+                        ti, tu equipo o una empresa; luego de que realizamos un cambio generamos un <em>pull
+                            request</em> para ofrecer un cambio a mejora y solo queda esperar a que el dueño del
+                        repositorio lo pruebe y lo agregue a el código principal.</p>
+                </div>
+                <h2>TRANSCRIPCION</h2>
+                <div class="Transcript-text">
+                    <p>El Pull Recuesta es una herramienta desarrollada por David Pizarro.</p>
+                    <p>Es un repositorio posible que utiliza el sistema de versionado de Edit. </p>
+                    <p>De lo que se trata es, de general, una solicitud al dueño del repositorio ofreciéndole </p>
+                    <p>una mejora del código. Es decir, algo como eso. </p>
+                    <p>Desarrollé esta versión que considero que es mejor que la versión que está en el repositorio y
+                    </p>
+                    <p>La. Ofrezco hacia el dueño del repositorio para que él tome la decisión de efectivamente </p>
+                    <p>incorporarla y que todos los demás desarrolladores puedan también tener la o simplemente
+                        descartarla </p>
+                    <p>porque no le parece que sea suficientemente útil. </p>
+                    <p>Y también lo que se puede hacer es ir haciendo preguntas como un sistema de foro, de modo de que
+                        no </p>
+                    <p>sea tanto la decisión individual del dueño, sino que uno pueda de alguna manera justificar </p>
+                    <p>la. La mejora que está proponiendo Usualmente lo que se hace es tomar un repositorio y realizar
+                        lo </p>
+                    <p>que se llama un fort, una bifurcación donde lo que se hace es tomar una copia. </p>
+                    <p>Ese repositorio en la que uno pueda trabajar perfectamente cómodo sin molestará a </p>
+                    <p>todos los demás. Y en el momento en que uno considera que su trabajo está terminado en </p>
+                    <p>ese momento se crea este público esta Esta solicitud de decir Tengo una versión que me parece que
+                        sería </p>
+                    <p>positiva para los demás. Que te parece incorporarla ese mensaje le sea el dueño del repositorio y
+                        él </p>
+                    <p>será el que tomara la decisión. Veamos un ejemplo real de un código que tal vez te resulte
+                        familiar </p>
+                    <p>de alguna de las primeras clases Lo que vemos aquí Es la página de Edit donde está este código
+                        alojado </p>
+                    <p>Y aquí tengo la posibilidad de editar el archivo. </p>
+                    <p>Entonces voy a hacer alguna mejora. Por ejemplo, Se para esta línea. </p>
+                    <p>Dejar un poco más claro dónde está el IFE? Donde termina muy bien. </p>
+                    <p>Este código todavía no es perfecto, pero definitivamente es mejor que lo que había, con lo cual
+                        voy </p>
+                    <p>al confirmar mis cambios francés. Voy a poner mejor versión y voy a tratar de dar un comentario
+                        que </p>
+                    <p>explica un poco mejor porque el dueño del repositorio debería aceptar este cambio. </p>
+                    <p>Por ejemplo, voy a poner mejor intenta Zion Más sol, claridad Por, separación de </p>
+                    <p>instrucciones. Y por ultimo, voy a crear una nueva rama que voy a utilizar para revisar </p>
+                    <p>mi Push recuesta. Entonces voy a proponer este cambio muy bien. </p>
+                    <p>Y aquí me da la opción de efectivamente crear este Push recuesta sea a partir del momento en que
+                        eso </p>
+                    <p>primase botón de vaciar un mensaje al dueño del repositorio diciéndole que alguien </p>
+                    <p>está ofreciendo un cambio en este caso. Eso mismo soy el dueño del repositorio, con lo cual el
+                    </p>
+                    <p>flujo va a ser un poco más simplificado, pero igualmente va a servir. </p>
+                    <p>Pues muy bien. Aquí vemos entonces la visión de el dueño, el repositorio que dice M </p>
+                    <p>Joffrin ha propuesto un cambio y pues a mi me queda la opción de hacer el meros, Con lo cual esto
+                        significa </p>
+                    <p>aceptar ese cambio y que el código pase, hacer la versión que me están proponiendo. </p>
+                    <p>O puedo cerrar Help o el recuerdo sin aceptar el cambio y dejar que la cosa siga </p>
+                    <p>como estaban o inclusive puedo hacer un comentario que le va a llegar a quien propuso este cambio
+                        para </p>
+                    <p>hay un poco más de información que me ayude a tomar la decisión de hacer EL Merge o </p>
+                    <p>descartar los cambios. En mi caso, voy a hacer en marzo. </p>
+                    <p>Aquí lo confirmó muy bien, pues entonces ahora sea ha quedado el código combinado </p>
+                    <p>O sea, el el código actualmente es la versión corregida en esta clase aprendiste </p>
+                    <p>sobre una poderosa herramienta para el desarrollo colaborativo. </p>
+                    <p>De hecho, grandes equipos distribuidos basan todo su trabajo en el uso de Push. </p>
+                    <p>Recuerda. Un ejemplo muy claro es Los desarrolladores de Linux, De modo que te </p>
+                    <p>invito a que pruebes esto. Vende equipo de trabajo y si sale bien es usando que dejes tus
+                        comentarios </p>
+                    <p>respecto de cómo te ha ido, como te ayuda, como te resulta. </p>
+                    <p>Y por último, no te pierdas la próxima clase donde hablaremos sobre documentación de sofá. </p>
+                </div>
+            </article>
+        </section>
+
+        <hr>
+
+        <section class="row">
+            <article class="col">
+                <h2>Sección 23 de 26 - documentacion</h2>
+                <div class="Resources-description">
+                    <p>Documentar es una de las mejores prácticas que podemos hacer cuando estamos en un equipo de
+                        trabajo. Dejar por escrito cómo hemos hecho algunas funcionalidades, cómo podría ser mejorado el
+                        código y por sobretodo debemos dejar comentarios en el código que ayuden a las personas a
+                        ubicarse en qué parte de la aplicación están y qué hacen esas líneas de código.</p>
+                </div>
+                <h2>TRANSCRIPCION</h2>
+                <div class="Transcript-text">
+                    <p>Otra de las buenas prácticas Cuando se trabaja en equipo es la de documental.</p>
+                    <p>De lo que se trata es de dejar por escrito las decisiones que hemos tomado. </p>
+                    <p>Como está funcionando nuestro código y demás siguen. </p>
+                    <p>Obviamente, a esta altura tusa escribes código espectacular sin ningún tipo de vicios y </p>
+                    <p>perfectamente claro. Sin embargo, muchas veces no alcanza solamente con eso. </p>
+                    <p>Entonces nos preguntamos qué es lo que debemos documentar específicamente? </p>
+                    <p>Pues es una pregunta un poco amplia, pero básicamente hay cosas que debes documentar pensando
+                        siempre </p>
+                    <p>en la persona que va a tomar tu código. Cuando tú lo dejes, tienes que pensar siempre en que </p>
+                    <p>es lo mínimo que necesita esta persona saber para poder continuar tu trabajo, Hay donde tú lo has
+                        dejado </p>
+                    <p>por ejemplo, como se puede implementar una nueva funcionalidad en caso de querer hacerlo como
+                    </p>
+                    <p>se puede, se va al nuevo código a producción. Cómo se realizan las pruebas? </p>
+                    <p>Quiénes son los involucrados en el proyecto? En fin, la verdad es que hay muchas cosas que se
+                        pueden </p>
+                    <p>documentar, pero es importante, pues que la documentación exista. </p>
+                    <p>La segunda pregunta que se plantea es cómo documental. </p>
+                    <p>Y aquí la respuesta va un poco en pensar en quién es la persona que va a leer esta documentación,
+                        si </p>
+                    <p>es un compañero tus o de trabajo. Un par Alguien técnico, pues el lenguaje que vas a utilizar es
+                    </p>
+                    <p>o debe ser más bien técnico Si. Las personas que van al esta documentación no tienen un perfil
+                        técnico </p>
+                    <p>tan similar al tuyo, pues tendrás que recurrirán un idioma más coloquial. </p>
+                    <p>Cuando los de documentación no hablamos exclusivamente de texto. </p>
+                    <p>Hay que ser creativo. Los gráficos ayuda mucho a comprender las ideas. </p>
+                    <p>Esto que te estoy mostrando aquí es un gráfico conocido como VML Eso significa y </p>
+                    <p>Unified Moderen la muy o Lenguaje Unificado de Modelado es un lenguaje gráfico para </p>
+                    <p>especificar cómo las diferentes clases de nuestra aplicación se vinculan entre sí. </p>
+                    <p>Aquí podemos ver cada una de estas. Es una clase cada una. </p>
+                    <p>Estas cajitas, algunas especifican sus métodos, algunas no, pero todas tienen las </p>
+                    <p>flechas que las conectan. Este es un modo muy sencillo de transmitir un montón de información de
+                    </p>
+                    <p>una forma muy clara y sencilla. La siguiente pregunta que nos toca responder es donde </p>
+                    <p>escribió esta documentación Pues bien Básicamente. </p>
+                    <p>Existen dos lugares donde puede estar la documentación El primero es dentro del propio código y
+                        el segundo </p>
+                    <p>es en algún otro repositorio, por ejemplo, una wiki o documentos compartidos o cualquier </p>
+                    <p>otro sistema de documentación. Este es un ejemplo de documentación dentro del código, donde lo
+                        que </p>
+                    <p>hacemos es poner dentro de los comentarios de la de la función que estamos desarrollando, cuál es
+                        su </p>
+                    <p>cometido, que es lo que es lo que hará y, sobre todo, documentar los parámetros que reciben. </p>
+                    <p>Este tipo de documentación debería ser super específica, muy clara y concisa y sobre todo,
+                        pequeñas </p>
+                    <p>Y lo que tiene de interesante también es que cuando uno utiliza un entorno como este, un ID. </p>
+                    <p>El líder se basa en la documentación, especialmente lo que está escrito. </p>
+                    <p>Así, comenzando con arroba para dar información. </p>
+                    <p>Cuando otro desarrollador tiene que estar escribiendo el código utilizándolo, es decir, cuando
+                        uno </p>
+                    <p>quiera semana la función al. Esta información, por ejemplo, se saca de la documentación que está
+                    </p>
+                    <p>escrita ahí en línea La última pregunta que nos queda por responder es cuando documentar. </p>
+                    <p>O sea, cuando escribe esta documentación Lo ideal es escribir la documentación a </p>
+                    <p>la par del código. Es decir, apenas terminas de escribir el código inmediatamente, ir a
+                        actualizar </p>
+                    <p>la documentación En la realidad. Esto no siempre se puede. </p>
+                    <p>Se puede dar Sin embargo, es importante darle su espacio a la documentación. </p>
+                    <p>Es muy problemático. Cuando la documentación va por un camino y código va por otro. </p>
+                    <p>Después se hace muy difícil de poder seguir los desarrollos. </p>
+                    <p>Otro momento interesante es cuando finalmente pudiste resolver un problema bastante complejo y
+                    </p>
+                    <p>no Tags. Te que te falta de información. Piensa que si para ti fue complejo la persona que venga
+                        después </p>
+                    <p>de ti se encontraron las mismas dificultades. Con lo cual éste es un muy buen momento para
+                        aplicar </p>
+                    <p>la documentación. Muy bien en esta clase, entonces has aprendido la importancia de mantener una
+                        documentación </p>
+                    <p>vigente. Y como eso ayuda a tu trabajo en equipo Te, felicito. </p>
+                    <p>Hemos avanzado un montón y en la próxima clase y haremos un repaso de todo lo visto para poder
+                        terminar </p>
+                    <p>de afianzar los conceptos. Nos vemos así </p>
+                </div>
+            </article>
+        </section>
+
+        <hr>
+
+        <section class="row">
+            <article class="col">
+                <h2>Sección 24 de 26 - A quién beneficia el código bien escrito</h2>
+                <div class="Resources-description">
+                    <p>La primera persona a quien beneficiará es a nosotros mismos, lograremos entender nuestro código
+                        no importa el tiempo que pase.</p>
+                    <p>Nuestros compañeros lograrán entender muchísimo más nuestro código luego de todas las buenas
+                        prácticas que hemos realizado. Y finalmente a nuestro cliente que aunque no pueda ver al detalle
+                        nuestro código, estará mejor organizado y podrá ser leído por cualquier persona.</p>
+                </div>
+                <h2>TRANSCRIPCION</h2>
+                <div class="Transcript-text">
+                    <p>Felicitaciones. Estamos llegando al final de nuestro curso.</p>
+                    <p>Qué mejor momento para repasar todo lo aprendido? </p>
+                    <p>Empecemos por ver a quién beneficia el Código limpio. </p>
+                    <p>Recuerda el primer beneficiario del Código limpio serás tú mismo porque pues tener </p>
+                    <p>el código limpio al a tu día a día más llevadero. </p>
+                    <p>No tendrás que pasar horas y horas tratando de entender qué es lo que tú mismo insiste aceptables
+                        una </p>
+                    <p>semana o un mes Yo. Tus compañeros también se verán beneficiados porque al tener código limpio
+                        será </p>
+                    <p>más fácil integrar el trabajo de todos. Y sobre todo, será mucho más sencillo para un compañero
+                        Tutzo </p>
+                    <p>retomar el trabajo que tú has has dejado Por último. </p>
+                    <p>Tus clientes también se verán beneficiados por el Código limpio. </p>
+                    <p>Si el shofar que utilizan día a día está bien codificado, será mucho más sencillo mantenerlo al
+                    </p>
+                    <p>a través del tiempo, lo cual impactará en tener menores costos y, sobre todo menores tiempos de
+                        entrega </p>
+                    <p>Luego hablamos de cómo determinar si un código es o no de buena calidad. </p>
+                    <p>Lo primero que debemos pedirle a un código es que sea entendible. </p>
+                    <p>Nos rápidamente al primer vistazo. Eso habla de la legibilidad del Código, Luego el código debe
+                        estar </p>
+                    <p>preparado para acompañar la evolución del negocio a lo largo del tiempo. </p>
+                    <p>A eso se lo bueno, se como la mantenida Ilit Add del Código Por último Vamos a pedirle a un
+                        código </p>
+                    <p>para decir que es de buena calidad que esté preparado para ser testeado en forma automatizada.
+                    </p>
+                    <p>Muy bien, entonces que un poco flotando en la pregunta de qué tan difícil es realmente generar
+                    </p>
+                    <p>código de buena calidad? Pues la realidad es que no es algo extremadamente complejo. </p>
+                    <p>Se trata de tener en cuenta algunas cosas que se estuvimos viendo todo a lo largo del curso. </p>
+                    <p>Entre ellas tener en cuenta que la forma en que escribimos el código influyen Los </p>
+                    <p>nombres que utilizamos para nuestros identificadores hacen la diferencia definitivamente </p>
+                    <p>El diseño de las clases puede ser la diferencia entre un código que sea una pesadilla de mantener
+                        y </p>
+                    <p>otro que simplemente sea trabajo, pero acompañen la evolución. </p>
+                    <p>Y por último, ten en cuenta que no sólo se trata de código. </p>
+                    <p>La documentación también es importante. Algo que puede ayudarte a generar código de buena calidad
+                        es </p>
+                    <p>utilizar freímos estándar. Los frenos son conjuntos de librerías que se resuelven problemáticas
+                        comunes </p>
+                    <p>como ser el lo Vim de usuarios, la conexión, una base de datos y además, esto permite, por un
+                        lado </p>
+                    <p>RAR tiempo y por otro, El concentrarte en los problemas que son únicos de tu aplicación. </p>
+                    <p>Por otro lado, un pequeño efecto colateral que tienen estos freímos es que suelen </p>
+                    <p>estar desarrollados aplicando todas las buenas prácticas que venimos viendo en el curso, con lo
+                        cual </p>
+                    <p>son una excelente forma de partir de un código muy limpio y desarrollar a partir de ahí muy </p>
+                    <p>bien en la próxima clase. Lo que te voy a mostrar es un ejemplo real de aplicación de todos los
+                        principios </p>
+                    <p>que vimos, así que No te la pierdas. </p>
+                </div>
+
+            </article>
+        </section>
+
+        <hr>
+        
+        <section class="row">
+          <article class="col">
+            <h2>Sección 25 de 26 - Aplicar lo aprendido: Libro de visitas</h2>
+            
+          </article>
+        </section>
+
+        <hr>
+        
+        <section class="row">
+          <article class="col">
+            <h2>Sección 26 de 26 - Conclusiones</h2>
+            
+          </article>
+        </section>
+
+
+
+
+
+
+
+
+
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

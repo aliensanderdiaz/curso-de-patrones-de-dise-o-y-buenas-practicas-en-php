@@ -1,0 +1,17 @@
+{
+    "name": "alexa/platzi-tdd",
+    "autoload": {
+        "psr-4": {
+            "Alexa\\PlatziTdd\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Alexander Diaz",
+            "email": "aliensanderdiaz@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    }
+}
